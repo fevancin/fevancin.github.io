@@ -2,11 +2,13 @@
 
 const MAZE_DIM = 9;
 
+// obtaining the canvas element
 const canvas = document.getElementById("drawing-canvas");
 if (typeof canvas === "undefined") {
   console.error("Canvas element not found");
 }
 
+// obtaining the button element
 const button = document.getElementById("draw-button");
 if (typeof button === "undefined") {
   console.error("Button element not found");
@@ -19,10 +21,10 @@ canvas.height = canvas.clientHeight;
 function drawMaze(maze) {
   const ctx = canvas.getContext("2d");
   const px = canvas.width / (MAZE_DIM * 2 + 1); // square room size
-  ctx.fillStyle = "#4d4d4d";
+  ctx.fillStyle = "#004b13";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.strokeStyle = "#000000";
-  ctx.fillStyle = "#757575";
+  ctx.fillStyle = "#7a6c50";
   ctx.lineWidth = 4;
 
   // draws the outlines of the path
@@ -75,15 +77,15 @@ function drawMaze(maze) {
 // when the button is clicked...
 button.addEventListener("click", () => {
 
-  // generating the maze matrix
+  // generating the initial maze matrix
   const maze = [];
   for (let i = 0; i < MAZE_DIM; i++) {
     const row = [];
     for (let j = 0; j < MAZE_DIM; j++) {
       row.push({
-        visited: false,    // true for visited rooms
-        parent: null, // the room coordinate we came from in the visit
-        neighboursToDo: 4  // neighbours with 'visited = false'
+        visited: false,   // true for visited rooms
+        parent: null,     // the room coordinate we came from in the visit
+        neighboursToDo: 4 // neighbours with 'visited = false'
       });
       if (i === 0 || i === MAZE_DIM - 1) row[j].neighboursToDo--;
       if (j === 0 || j === MAZE_DIM - 1) row[j].neighboursToDo--;
