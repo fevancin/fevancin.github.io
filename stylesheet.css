@@ -51,15 +51,3 @@ button:active {
   color: var(--palette-color-4);
   border-color: var(--palette-color-4);;
 }
-
-footer {
-  border-top: 4px solid var(--palette-color-1);
-  border-right: 4px solid var(--palette-color-1);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  font-family: 'Courier New', Courier, monospace;
-  background-color: var(--palette-color-2);
-  color: var(--palette-color-1);
-  user-select: none;
-}
