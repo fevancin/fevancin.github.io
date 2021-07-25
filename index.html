@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Federico Vancini">
+    <meta name="description" content="Descrizione di un gioco da tavolo">
+    <title>Gioco da tavolo</title>
+    <link href="./stylesheet.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Regole di un gioco da tavolo</h1>
+    </header>
+    <main>
+        <h2>Risorse</h2>
+        <p>Le risorse sono:</p>
+        <ul>
+            <li>🌽 Grano</li>
+            <li>🌲 Legno</li>
+            <li>🗿 Pietra</li>
+            <li>🧲 Ferro</li>
+        </ul>
+        <p>
+            Il 🌽 grano è prodotto dai 🌾 campi di grano e serve per mantenere le unità. <br>
+            Il 🌲 legno è creato dalle 🪓 segherie. <br>
+            La 🗿 pietra ed il 🧲 ferro sono prodotti dalle 🏯 miniere.
+        </p>
+        <h2>Edifici</h2>
+        <p>Gli edifici sono:</p>
+        <ul>
+            <li>🏰 Castello</li>
+            <li>🏢 Municipio</li>
+            <li>🌾 Campo di grano</li>
+            <li>🪓 Segheria</li>
+            <li>🏯 Miniera</li>
+            <li>⚔️ Caserma</li>
+            <li>🏗️ Caserma speciale</li>
+            <li>🚢 Porto</li>
+            <li>🗼 Torre</li>
+        </ul>
+        <p>
+            Ogni giocatore dispone di un unico 🏰 castello che identifica la città capitale, mentre le città fondate successivamente avranno al suo posto dei 🏢 municipi. <br>
+            Se un castello viene distrutto il giocatore proprietario viene eliminato dal gioco e le sue altre colonie verranno spartite fra gli eventuali alleati. <br>
+            Per fondare una nuova colonia è necessario costruire almeno un 🏢 municipio su di un luogo disabitato. Se lo si raggiunge via mare sarà necessario anche costruirvi un 🚢 porto. <br>
+            Non c'è limite al numero di colonie. <br>
+            Gli edifici possono essere costruiti negli spazi prestabiliti nelle città. <br>
+            Alcuni edifici possono essere ampliati per migliorarne le caratteristiche. <br>
+            Almeno un 🛠️ ingegnere deve essere dedicato a ciascuna costruzione od ampliamento. <br>
+            Per costruire od ampliare gli edifici è necessario spendere delle risorse (🌲 legno, 🗿 pietra e 🧲 ferro) ed un certo numero di ⏲️ turni. <br>
+            Il numero di turni necessari al completamento dipende dal livello da raggiungere dell'edificio (1 ⇒ ⏲️, 2 ⇒ ⏲️⏲️⏲️, 3 ⇒ ⏲️⏲️⏲️⏲️⏲️). <br>
+            Più ingegneri dedicati allo stesso edificio ne riducono di 1 ciascuno il numero di turni necessario. <br>
+            Per demolire un edificio di un qualsiasi livello serve un 🛠️ ingegnere ed un ⏲️ turno. Non si recupera nessuna risorsa in seguito ad una demolizione. <br>
+            Le 🏯 miniere creano un totale di 🧨 risorse generiche che verranno trasformate turno per turno in 🗿 pietra e 🧲 ferro dal giocatore proprietario, a sua scelta. <br>
+            Le risorse generate in ogni città potranno essere utilizzate, a meno di scambi via terra o via mare, solamente dalla stessa.
+        </p>
+        <div class="table-container">
+            <table class="building-effects-table">
+                <caption>Caratteristiche degli edifici</caption>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrizione</th>
+                        <th>Livello 1</th>
+                        <th>Livello 2</th>
+                        <th>Livello 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="green-bg">
+                        <td>🏰 Castello</td>
+                        <td>Ne esiste solo uno per giocatore, crea 👑 e 🛠️</td>
+                        <td>Sblocca 👑 e 🛠️</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr class="green-bg">
+                        <td>🏢 Municipio</td>
+                        <td>Costruito nelle colonie, crea 🛠️</td>
+                        <td>Sblocca 🛠️</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr class="yellow-bg">
+                        <td>🌾 Campo di grano</td>
+                        <td>Genera 🌽 grano ad ogni turno</td>
+                        <td>🌽</td>
+                        <td>🌽🌽</td>
+                        <td>🌽🌽🌽🌽</td>
+                    </tr>
+                    <tr class="yellow-bg">
+                        <td>🪓 Segheria</td>
+                        <td>Genera 🌲 legno ad ogni turno</td>
+                        <td>🌲🌲</td>
+                        <td>🌲🌲🌲</td>
+                        <td>🌲🌲🌲🌲🌲</td>
+                    </tr>
+                    <tr class="yellow-bg">
+                        <td>🏯 Miniera</td>
+                        <td>Genera 🗿 pietra e 🧲 ferro ad ogni turno</td>
+                        <td>🧨🧨🧨</td>
+                        <td>🧨🧨🧨🧨</td>
+                        <td>🧨🧨🧨🧨🧨🧨</td>
+                    </tr>
+                    <tr class="red-bg">
+                        <td>⚔️ Caserma</td>
+                        <td>Crea 🗡️, 🏹 e 🐎</td>
+                        <td>Sblocca 🗡️</td>
+                        <td>Sblocca 🏹</td>
+                        <td>Sblocca 🐎</td>
+                    </tr>
+                    <tr class="purple-bg">
+                        <td>🏗️ Caserma speciale</td>
+                        <td>Crea 💣 e 🐉</td>
+                        <td>Sblocca 💣</td>
+                        <td>Sblocca 🐉</td>
+                        <td>-</td>
+                    </tr>
+                    <tr class="blue-bg">
+                        <td>🚢 Porto</td>
+                        <td>Crea 🛶, ⛵ e 🛥️</td>
+                        <td>Sblocca 🛶</td>
+                        <td>Sblocca ⛵</td>
+                        <td>Sblocca 🛥️</td>
+                    </tr>
+                    <tr class="grey-bg">
+                        <td>🗼 Torre</td>
+                        <td>Difende le città</td>
+                        <td>🛡️</td>
+                        <td>🛡️🛡️🛡️</td>
+                        <td>🛡️🛡️🛡️🛡️🛡️</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-container">
+            <table class="building-costs-table">
+                <caption>Costi degli edifici</caption>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Livello 1</th>
+                        <th>Livello 2</th>
+                        <th>Livello 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="green-bg">
+                        <td>🏰 Castello</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr class="green-bg">
+                        <td>🏢 Municipio</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr class="yellow-bg">
+                        <td>🌾 Campo di grano</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                    </tr>
+                    <tr class="yellow-bg">
+                        <td>🪓 Segheria</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                    </tr>
+                    <tr class="yellow-bg">
+                        <td>🏯 Miniera</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                    </tr>
+                    <tr class="red-bg">
+                        <td>⚔️ Caserma</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                    </tr>
+                    <tr class="purple-bg">
+                        <td>🏗️ Caserma speciale</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>-</td>
+                    </tr>
+                    <tr class="blue-bg">
+                        <td>🚢 Porto</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                    </tr>
+                    <tr class="grey-bg">
+                        <td>🗼 Torre</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                        <td>🌲⨯1, 🗿⨯1, 🧲⨯1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2>Unità</h2>
+        <p>Le unità sono:</p>
+        <ul>
+            <li>👑 Re</li>
+            <li>🛠️ Ingegnere</li>
+            <li>🗡️ Guerriero</li>
+            <li>🏹 Arciere</li>
+            <li>🐎 Cavaliere</li>
+            <li>💣 Cannoniere</li>
+            <li>🐉 Drago</li>
+            <li>🛶 Barca di trasporto</li>
+            <li>⛵ Galeone</li>
+            <li>🛥️ Fregata</li>
+        </ul>
+        <p>
+            Le unità possono essere addestrate a partire da edifici specifici. <br>
+            👑 Re e 🛠️ ingegneri sono creati nel 🏰 castello. Gli ingegneri possono essere creati anche nei 🏢 municipi. <br>
+            I 🗡️ guerrieri, gli 🏹 arcieri e i 🐎 cavalieri sono addestrati nelle ⚔️ caserme. <br>
+            I 💣 cannonieri e i 🐉 draghi sono creati nelle 🏗️ caserme speciali. <br>
+            Le 🛶 barche di trasporto, i ⛵ galeoni e le 🛥️ fregate sono costruite nei 🚢 porti. <br>
+            È possibile addestrare al massimo un'unità per turno in ogni edificio corrispondente. <br>
+            Ogni unità ha un costo di creazione ed uno di mantenimento. <br>
+            Il costo di mantenimento è in 🌽 grano e deve essere pagato ad ogni turno. <br>
+            Le unità di mare non hanno costo di mantenimento. <br>
+            Se non si possiede abbastanza grano per soddisfare i costi di mantenimento di tutte le proprie unità queste verranno eliminate a partire dalle meno costose. <br>
+            Ogni unità può essere eliminata gratuitamente in qualsiasi momento, non ricevendo però alcun rimborso sui costi sostenuti per crearla. <br>
+            Per poter attaccare le 🗼 torri avversarie è necessario utilizzare 💣 cannonieri oppure 🛥️ fregate. <br>
+            Le navi da guerra (⛵ e 🛥️) possono attaccare solamente città costiere avversarie, con o senza porto.
+        </p>
+        <div class="table-container">
+            <table class="unit-table">
+                <caption>Caratteristiche delle unità</caption>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrizione</th>
+                        <th>Edificio di creazione</th>
+                        <th>Costo di addestramento</th>
+                        <th>Costo di mantenimento</th>
+                        <th>Statistiche</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="green-bg">
+                        <td>👑 Re</td>
+                        <td>Può esistere solo un re per giocatore</td>
+                        <td>🏰 Castello</td>
+                        <td>🌲⨯5, 🧲⨯4</td>
+                        <td>🌽🌽</td>
+                        <td>👊⨯6, 🛡️⨯3</td>
+                    </tr>
+                    <tr class="green-bg">
+                        <td>🛠️ Ingegnere</td>
+                        <td>Costruisce ed amplia gli edifici</td>
+                        <td>🏰 Castello o 🏢 Municipio</td>
+                        <td>🌲⨯1, 🧲⨯1</td>
+                        <td>🌽</td>
+                        <td>👊⨯0, 🛡️⨯1</td>
+                    </tr>
+                    <tr class="red-bg">
+                        <td>🗡️ Guerriero</td>
+                        <td>Unità di terra di base</td>
+                        <td>⚔️ Caserma lv.1</td>
+                        <td>🌲⨯1, 🧲⨯1</td>
+                        <td>🌽</td>
+                        <td>👊⨯1, 🛡️⨯4</td>
+                    </tr>
+                    <tr class="red-bg">
+                        <td>🏹 Arciere</td>
+                        <td>Unità di terra intermedia</td>
+                        <td>⚔️ Caserma lv.2</td>
+                        <td>🌲⨯2, 🧲⨯2</td>
+                        <td>🌽🌽</td>
+                        <td>👊⨯2, 🛡️⨯1</td>
+                    </tr>
+                    <tr class="red-bg">
+                        <td>🐎 Cavaliere</td>
+                        <td>Unità di terra avanzata</td>
+                        <td>⚔️ Caserma lv.3</td>
+                        <td>🌲⨯1, 🧲⨯4</td>
+                        <td>🌽🌽🌽</td>
+                        <td>👊⨯4, 🛡️⨯2</td>
+                    </tr>
+                    <tr class="purple-bg">
+                        <td>💣 Cannoniere</td>
+                        <td>Può attaccare le 🗼 torri</td>
+                        <td>🏗️ Caserma speciale lv.1</td>
+                        <td>🗿⨯2, 🧲⨯3</td>
+                        <td>🌽🌽</td>
+                        <td>👊⨯2, 🛡️⨯2</td>
+                    </tr>
+                    <tr class="purple-bg">
+                        <td>🐉 Drago</td>
+                        <td>Vola, non occupa spazio sulle barche</td>
+                        <td>🏗️ Caserma speciale lv.2</td>
+                        <td>🌲⨯4, 🗿⨯1, 🧲⨯3</td>
+                        <td>🌽🌽🌽🌽</td>
+                        <td>👊⨯8, 🛡️⨯4</td>
+                    </tr>
+                    <tr class="blue-bg">
+                        <td>🛶 Barca da trasporto</td>
+                        <td>Commercia risorse e trasporta unità</td>
+                        <td>🚢 Porto lv.1</td>
+                        <td>🌲⨯3, 🧲⨯2</td>
+                        <td>-</td>
+                        <td>👊⨯0, 🛡️⨯1</td>
+                    </tr>
+                    <tr class="blue-bg">
+                        <td>⛵ Galea</td>
+                        <td>Nave da guerra di base</td>
+                        <td>🚢 Porto lv.2</td>
+                        <td>🌲⨯4, 🗿⨯2, 🧲⨯2</td>
+                        <td>-</td>
+                        <td>👊⨯2, 🛡️⨯3</td>
+                    </tr>
+                    <tr class="blue-bg">
+                        <td>🛥️ Fregata</td>
+                        <td>Nave da guerra avanzata, può attaccare le 🗼 torri</td>
+                        <td>🚢 Porto lv.3</td>
+                        <td>🌲⨯4, 🗿⨯3, 🧲⨯3</td>
+                        <td>-</td>
+                        <td>👊⨯6, 🛡️⨯3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2>Spostamenti e Scambi</h2>
+        <p>
+            Le unità di terra (👑, 🛠️, 🗡️, 🏹, 🐎, 💣, 🐉) una volta create possono muoversi via terra effettuando spostamenti fra città alleate contigue, impiegando un ⏲️ turno per ogni avanzamento. <br>
+            Le unità di mare (🛶, ⛵, 🛥️) possono spostarsi via mare partendo ed arrivando in città alleate con dei 🚢 porti, impiegando sempre un ⏲️ turno. <br>
+            La 🛶 barca di trasporto può caricare fino a 5 unità di terra normali (👑, 🛠️, 🗡️, 🏹, 🐎) e fino a 2 💣 cannonieri. <br>
+            I 🐉 draghi non occupano spazio sulle navi da trasporto, ma sono obbligati a viaggiare comunque al loro fianco. <br>
+            Le risorse (🌽, 🌲, 🗿, 🧲) possono essere spostate via terra fra città alleate contigue impiegando un ⏲️ turno per ogni avanzamento. <br>
+            Per spostare le risorse via mare è necessario utilizzare una 🛶 barca di trasporto, impegando sempre un ⏲️ turno.
+        </p>
+    </main>
+    <footer>
+        <p>📖 by F.V.</p>
+    </footer>
+    <!-- <p>
+        🌽🌲🗿🧲🧨⏲️
+    </p>
+    <p>
+        👑🛠️🗡️🏹🐎💣🐉🛶⛵🛥️
+    </p>
+    <p>
+        🏰🏢🌾🪓🏯⚔️🏗️🚢🗼
+    </p>
+    <p>
+        👊🛡️⨯
+    </p> -->
+</body>
+</html>
