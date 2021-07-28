@@ -51,6 +51,17 @@ body {
     padding: 0.25cm;
 }
 
+.retro.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.retro-logo {
+    font-size: 3cm;
+}
+
 .inner-card {
     background-color: var(--card-inner-color);
     height: calc(100% - 2cm);
@@ -175,6 +186,61 @@ body {
     background-color: rgb(105, 105, 105);
 }
 
+.levelup {
+    border: 0.25cm solid rgb(190, 161, 0);
+    background-color: rgb(255, 230, 7);
+    position: relative;
+}
+
+.levelup-icon {
+    z-index: 1;
+    position: absolute;
+    left: 0.5cm;
+    text-shadow: 0 0 0.3cm rgba(0, 0, 0, 0.5);
+}
+
+.star {
+    position: absolute;
+    
+    display: inline-block;
+    width: 0;
+    height: 0;
+    
+    margin-left: .9em;
+    margin-right: .9em;
+    margin-bottom: 1.2em;
+    
+    border-right:  .3em solid transparent;
+    border-bottom: .7em  solid #FC0;
+    border-left:   .3em solid transparent;
+  
+    /* Controlls the size of the stars. */
+    font-size: 1.4cm;
+    left: -0.2cm;
+    top: 0.15cm;
+    
+}
+.star:before, .star:after {
+  content: '';
+  
+  display: block;
+  width: 0;
+  height: 0;
+  
+  position: absolute;
+  top: .6em;
+  left: -1em;
+
+  border-right:  1em solid transparent;
+  border-bottom: .7em  solid #FC0;
+  border-left:   1em solid transparent;
+
+  transform: rotate(-35deg);
+}
+.star:after {  
+  transform: rotate(35deg);
+}
+
 .building-container {
     display: flex;
     flex-direction: row;
@@ -268,6 +334,13 @@ body {
     margin: 0.0625cm;
 }
 
+.unit-pawns .circle {
+    font-size: 1cm;
+    height: 1.5cm;
+    width: 1.5cm;
+    line-height: 1.5cm;
+}
+
 .soldier {
     border: 0.25cm solid rgb(110, 52, 13);
     background-color: rgb(184, 121, 79);
@@ -278,17 +351,24 @@ body {
     background-color: rgb(79, 184, 126);
 }
 
-.knight {
+.knight.knight.knight {
+    width: 3cm;
     border: 0.25cm solid rgb(110, 13, 26);
     background-color: rgb(184, 79, 114);
 }
 
-.catapult {
+.catapult.catapult.catapult {
     border: 0.25cm solid rgb(74, 13, 110);
     background-color: rgb(167, 79, 184);
+    height: 4.5cm;
+    line-height: 4.5cm;
 }
 
-.dragon {
+.dragon.dragon.dragon {
     border: 0.25cm solid rgb(21, 110, 13);
     background-color: rgb(100, 184, 79);
+    width: 3cm;
+    height: 3cm;
+    line-height: 3cm;
+    border-radius: 1cm;
 }
