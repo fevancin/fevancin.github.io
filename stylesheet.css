@@ -267,3 +267,28 @@ body {
     width: 1.2cm;
     margin: 0.0625cm;
 }
+
+.soldier {
+    border: 0.25cm solid rgb(110, 52, 13);
+    background-color: rgb(184, 121, 79);
+}
+
+.archer {
+    border: 0.25cm solid rgb(13, 110, 21);
+    background-color: rgb(79, 184, 126);
+}
+
+.knight {
+    border: 0.25cm solid rgb(110, 13, 26);
+    background-color: rgb(184, 79, 114);
+}
+
+.catapult {
+    border: 0.25cm solid rgb(74, 13, 110);
+    background-color: rgb(167, 79, 184);
+}
+
+.dragon {
+    border: 0.25cm solid rgb(21, 110, 13);
+    background-color: rgb(100, 184, 79);
+}
