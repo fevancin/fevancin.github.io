@@ -1,199 +1,269 @@
 :root {
-    --palette-color-1: #ACBDBA;
-    --palette-color-2: #CDDDDD;
-    --palette-color-3: #A599B5;
-    --palette-color-4: #2E2F2F;
-    --palette-color-5: #051014;
+    --card-outer-border-color: rgb(105, 105, 105);
+    --card-inner-color: rgb(185, 185, 185);
+    --card-lower-stripe-text-color: rgb(199, 199, 199);
+    --card-lower-stripe-color: rgb(58, 58, 58);
+    font-family: sans-serif;
+}
 
-    --red-bg: #c47f7f;
-    --blue-bg: #7fa3c4;
-    --yellow-bg: #c4ba7f;
-    --green-bg: #8bc47f;
-    --purple-bg: #b67fc4;
-    --grey-bg: #c9c9c9;
-
-    --red-bg-2: #c94f4f;
-    --blue-bg-2: #4286c5;
-    --yellow-bg-2: #c5b141;
-    --green-bg-2: #5ac944;
-    --purple-bg-2: #ad40c9;
-    --grey-bg-2: #7c7c7c;
+@media print {
+    body {
+        width: 21cm;
+        height: 29.7cm;
+        margin: 30mm 45mm 30mm 45mm;
+   }
 }
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--palette-color-2);
-    color: var(--palette-color-5);
-    min-height: 100vh;
-    overflow-y: auto;
 }
 
-section {
-    margin: 1em;
-}
-
-/* TEXT */
-
-h1 {
-    text-align: center;
-    margin: 0;
-    padding: 0.5em 0;
-    background-color: var(--palette-color-4);
-    color: var(--palette-color-1);
-}
-
-h2 {
-    background-color: var(--palette-color-3);
-    margin: 0.66em 0;
-}
-
-h2::before {
-    display: inline-block;
-    content: "§";
-    width: 1em;
-    text-align: center;
-}
-
-p {
-    padding: 0 1em;
-}
-
-hr {
-    border: 2px solid var(--palette-color-1);
-    width: 50%;
-}
-
-/* LIST */
-
-ol {
-    padding: 0;
-    margin: 0;
+.circle-container .single {
+    background-color: var(--card-inner-color);
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.5cm;
+}
+
+.circle-container .circle {
+    margin: 0.5cm;
+}
+
+.card-container {
+    padding: 0.5cm;
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    list-style: none;
 }
 
-ol li {
-    background-color: var(--palette-color-1);
-    padding: 0 0.5em;
-    margin: 0.5em;
+.card {
+    margin: 0.5cm;
+    height: 9.6cm;
+    width: 6.4cm;
+    border-radius: 0.1cm;
+    background-color: var(--card-outer-border-color);
+    box-shadow: 0 0 0.2cm rgba(0, 0, 0, 0.5);
+    padding: 0.25cm;
 }
 
-ul {
-    padding-right: 1em;
+.inner-card {
+    background-color: var(--card-inner-color);
+    height: calc(100% - 2cm);
 }
 
-dl {
-    padding-right: 1em;
+.inner-card.single {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-dt {
-    margin-left: 1em;
-    padding: 0 0.5em;
-    display: inline-block;
+.inner-card.double {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.inner-card.triple {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.inner-card.quadruple {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+}
+
+.circle {
+    text-align: center;
+    background-color: var(--card-outer-border-color);
+    border-color: var(--card-lower-stripe-color);
+}
+
+.single .circle {
+    font-size: 1.5cm;
+    width: 3cm;
+    height: 3cm;
+    border-radius: 2cm;
+    line-height: 3cm;
+}
+
+.double .circle {
+    font-size: 1.2cm;
+    width: 2.5cm;
+    height: 2.5cm;
+    border-radius: 2cm;
+    line-height: 2.5cm;
+}
+
+.triple .circle {
+    font-size: 1cm;
+    width: 2cm;
+    height: 2cm;
+    border-radius: 2cm;
+    line-height: 2cm;
+}
+
+.quadruple .circle {
+    font-size: 1cm;
+    width: 2cm;
+    height: 2cm;
+    border-radius: 2cm;
+    line-height: 2cm;
+}
+
+.plus {
+    position: relative;
+}
+
+.plus::before {
+    content: "➕";
+    font-size: 0.75cm;
+    position: absolute;
+    display: block;
+    top: -0.7cm;
+    left: -0.5cm;
+}
+
+.lower-card-stripe {
+    height: 2cm;
+    text-align: center;
+    background-color: var(--card-lower-stripe-color);
+    color: var(--card-lower-stripe-text-color);
     font-weight: bold;
-    background-color: var(--palette-color-1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-dd {
-    margin-bottom: 1em;
+.wheat-field {
+    border: 0.25cm solid rgb(209, 165, 18);
+    background-color: rgb(231, 195, 78);
 }
 
-/* TABLE */
-
-.table-container {
-    overflow-x: auto;
-    width: 100%;
-    margin: 1em 0;
+.city-hall {
+    border: 0.25cm solid rgb(129, 147, 185);
+    background-color: rgb(170, 185, 233);
 }
 
-table {
-    margin: 0 auto;
-    border-collapse: collapse;
+.barracks {
+    border: 0.25cm solid rgb(206, 56, 11);
+    background-color: rgb(233, 131, 106);
+}
+
+.harbor {
+    border: 0.25cm solid rgb(11, 177, 206);
+    background-color: rgb(106, 203, 233);
+}
+
+.attack {
+    border: 0.25cm solid rgb(39, 39, 39);
+    background-color: rgb(105, 105, 105);
+}
+
+.building-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-inner-color);
+    padding: 0.5cm;
+}
+
+.building {
+    height: 8cm;
+    width: 4.8cm;
+    background-color: var(--card-outer-border-color);
+    position: relative;
+    left: 2cm;
+    box-sizing: border-box;
+    margin: 0.5cm;
+}
+.building::before, .building::after {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 0;
+    border-top: 4cm solid transparent;
+    border-bottom: 150px solid transparent;
+}
+.building::before {
+    left: -2cm;
+    border-right: 2cm solid var(--card-outer-border-color);
+}
+.building::after {
+    right: -2cm;
+    border-left: 2cm solid var(--card-outer-border-color);
+}
+
+.building.wheat {
+    background-color: rgb(209, 165, 18);
+}
+.building::before {
+    border-right: 2cm solid rgb(209, 165, 18);
+}
+.building::after {
+    border-left: 2cm solid rgb(209, 165, 18);
+}
+
+.inner-building {
+    background-color: var(--card-inner-color);
+    height: 5cm;
+    width: 4.8cm;
+}
+
+.lower-building-stripe {
+    border-top: 2cm solid var(--card-lower-stripe-color);
+    border-left: 1cm solid transparent;
+    border-right: 1cm solid transparent;
+    width: 4.77cm;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: -1cm;
+}
+
+.wheat .inner-building {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background-color: rgb(209, 165, 18);
+    padding: 0.6cm 0 0.4cm 0;
+}
+
+.unit-space {
+    border: 0.125cm solid var(--card-outer-border-color);
+    background-color: rgb(231, 195, 78);
+    height: 1.2cm;
+    width: 1.2cm;
+    border-radius: 1.2cm;
     text-align: center;
+    line-height: 1.2cm;
+    margin: 0.0625cm;
 }
 
-caption {
-    text-align: start;
-}
-
-tr:not(:last-child) {
-    border-bottom: 1px solid var(--palette-color-4);
-}
-
-th, td {
-    height: 2em;
-    min-width: 8em;
-}
-
-th:not(:last-child), td:not(:last-child) {
-    border-right: 1px solid var(--palette-color-4);
-}
-
-th {
-    background-color: var(--palette-color-3);
-    border-bottom: 1px solid var(--palette-color-4);
-}
-
-td {
-    background-color: var(--palette-color-1);
-}
-
-td:first-child {
-    text-align: start;
-}
-
-.red-bg td {
-    background-color: var(--red-bg);
-}
-.red-bg td:first-child {
-    background-color: var(--red-bg-2);
-}
-
-.blue-bg td {
-    background-color: var(--blue-bg);
-}
-.blue-bg td:first-child {
-    background-color: var(--blue-bg-2);
-}
-
-.yellow-bg td {
-    background-color: var(--yellow-bg);
-}
-.yellow-bg td:first-child {
-    background-color: var(--yellow-bg-2);
-}
-
-.green-bg td {
-    background-color: var(--green-bg);
-}
-.green-bg td:first-child {
-    background-color: var(--green-bg-2);
-}
-
-.purple-bg td {
-    background-color: var(--purple-bg);
-}
-.purple-bg td:first-child {
-    background-color: var(--purple-bg-2);
-}
-
-.grey-bg td {
-    background-color: var(--grey-bg);
-}
-.grey-bg td:first-child {
-    background-color: var(--grey-bg-2);
-}
-
-/* FOOTER */
-
-footer p {
-    text-align: center;
-    margin: 0;
-    padding: 0.5em 0;
-    background-color: var(--palette-color-4);
-    color: var(--palette-color-1);
+.empty-space {
+    border: 0.125cm solid transparent;
+    height: 1.2cm;
+    width: 1.2cm;
+    margin: 0.0625cm;
 }
