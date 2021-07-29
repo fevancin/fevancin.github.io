@@ -3,372 +3,203 @@
     --card-inner-color: rgb(185, 185, 185);
     --card-lower-stripe-text-color: rgb(199, 199, 199);
     --card-lower-stripe-color: rgb(58, 58, 58);
-    font-family: sans-serif;
-}
 
-@media print {
-    body {
-        width: 21cm;
-        height: 29.7cm;
-        margin: 30mm 45mm 30mm 45mm;
-   }
+    --card-width: 5.9cm;
+    --card-height: 8.6cm;
+    --card-outer-border-width: 0.25cm;
+    --lower-stripe-height: 2cm;
+
+    --single-circle-size: 3cm;
+    --double-circle-size: 2.5cm;
+    --triple-circle-size: 2cm;
+    --quadruple-circle-size: 2cm;
+
+    --wheat-circle-color: rgb(240, 184, 33);
+    --wheat-circle-border-color: rgb(194, 145, 11);
+    --hall-circle-color: rgb(201, 179, 241);
+    --hall-circle-border-color: rgb(141, 108, 202);
+    --barracks-circle-color: rgb(238, 152, 102);
+    --barracks-circle-border-color: rgb(218, 85, 51);
+    --harbor-circle-color: rgb(95, 176, 207);
+    --harbor-circle-border-color: rgb(68, 119, 196);
+    --attack-circle-color: rgb(133, 133, 133);
+    --attack-circle-border-color: rgb(66, 66, 66);
 }
 
 body {
     margin: 0;
-}
-
-.circle-container .single {
-    background-color: var(--card-inner-color);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0.5cm;
-}
-
-.circle-container .circle {
-    margin: 0.5cm;
+    font-family: sans-serif;
 }
 
 .card-container {
-    padding: 0.5cm;
+    page-break-after: always;
+    width: 21cm;
+    height: 29.7cm;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid black;
 }
 
 .card {
-    margin: 0.5cm;
-    height: 9.6cm;
-    width: 6.4cm;
-    border-radius: 0.1cm;
-    background-color: var(--card-outer-border-color);
-    box-shadow: 0 0 0.2cm rgba(0, 0, 0, 0.5);
-    padding: 0.25cm;
-}
-
-.retro.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    background-color: var(--card-inner-color);
+    position: relative;
+    margin: 0.25cm;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
-.retro-logo {
+.reverse.card {
+    background-color: var(--card-outer-border-color);
+}
+.reverse.card::after {
+    content: "🗺️";
     font-size: 3cm;
 }
 
-.inner-card {
-    background-color: var(--card-inner-color);
-    height: calc(100% - 2cm);
-}
-
-.inner-card.single {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.inner-card.double {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.inner-card.triple {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    align-content: center;
-}
-
-.inner-card.quadruple {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    align-content: space-evenly;
-}
-
-.circle {
-    text-align: center;
-    background-color: var(--card-outer-border-color);
-    border-color: var(--card-lower-stripe-color);
-}
-
-.single .circle {
-    font-size: 1.5cm;
-    width: 3cm;
-    height: 3cm;
-    border-radius: 2cm;
-    line-height: 3cm;
-}
-
-.double .circle {
-    font-size: 1.2cm;
-    width: 2.5cm;
-    height: 2.5cm;
-    border-radius: 2cm;
-    line-height: 2.5cm;
-}
-
-.triple .circle {
-    font-size: 1cm;
-    width: 2cm;
-    height: 2cm;
-    border-radius: 2cm;
-    line-height: 2cm;
-}
-
-.quadruple .circle {
-    font-size: 1cm;
-    width: 2cm;
-    height: 2cm;
-    border-radius: 2cm;
-    line-height: 2cm;
-}
-
-.plus {
-    position: relative;
-}
-
-.plus::before {
-    content: "➕";
-    font-size: 0.75cm;
-    position: absolute;
+.second.card::after {
     display: block;
-    top: -0.7cm;
-    left: -0.5cm;
+    content: "❗";
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-.lower-card-stripe {
-    height: 2cm;
-    text-align: center;
+.card::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: calc(var(--card-width) + 2 * var(--card-outer-border-width));
+    height: calc(var(--card-height) + 2 * var(--card-outer-border-width));
+    top: calc(-1 * var(--card-outer-border-width));
+    left: calc(-1 * var(--card-outer-border-width));
+    background-color: var(--card-outer-border-color);
+    z-index: -1;
+    border-radius: 0.125cm;
+}
+
+.card .text {
     background-color: var(--card-lower-stripe-color);
     color: var(--card-lower-stripe-text-color);
-    font-weight: bold;
+    width: 100%;
+    height: var(--lower-stripe-height);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.wheat-field {
-    border: 0.25cm solid rgb(209, 165, 18);
-    background-color: rgb(231, 195, 78);
-}
-
-.city-hall {
-    border: 0.25cm solid rgb(129, 147, 185);
-    background-color: rgb(170, 185, 233);
-}
-
-.barracks {
-    border: 0.25cm solid rgb(206, 56, 11);
-    background-color: rgb(233, 131, 106);
-}
-
-.harbor {
-    border: 0.25cm solid rgb(11, 177, 206);
-    background-color: rgb(106, 203, 233);
-}
-
-.attack {
-    border: 0.25cm solid rgb(39, 39, 39);
-    background-color: rgb(105, 105, 105);
-}
-
-.levelup {
-    border: 0.25cm solid rgb(190, 161, 0);
-    background-color: rgb(255, 230, 7);
-    position: relative;
-}
-
-.levelup-icon {
-    z-index: 1;
     position: absolute;
-    left: 0.5cm;
-    text-shadow: 0 0 0.3cm rgba(0, 0, 0, 0.5);
-}
-
-.star {
-    position: absolute;
-    
-    display: inline-block;
-    width: 0;
-    height: 0;
-    
-    margin-left: .9em;
-    margin-right: .9em;
-    margin-bottom: 1.2em;
-    
-    border-right:  .3em solid transparent;
-    border-bottom: .7em  solid #FC0;
-    border-left:   .3em solid transparent;
-  
-    /* Controlls the size of the stars. */
-    font-size: 1.4cm;
-    left: -0.2cm;
-    top: 0.15cm;
-    
-}
-.star:before, .star:after {
-  content: '';
-  
-  display: block;
-  width: 0;
-  height: 0;
-  
-  position: absolute;
-  top: .6em;
-  left: -1em;
-
-  border-right:  1em solid transparent;
-  border-bottom: .7em  solid #FC0;
-  border-left:   1em solid transparent;
-
-  transform: rotate(-35deg);
-}
-.star:after {  
-  transform: rotate(35deg);
-}
-
-.building-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--card-inner-color);
-    padding: 0.5cm;
-}
-
-.building {
-    height: 8cm;
-    width: 4.8cm;
-    background-color: var(--card-outer-border-color);
-    position: relative;
-    left: 2cm;
-    box-sizing: border-box;
-    margin: 0.5cm;
-}
-.building::before, .building::after {
-    content: "";
-    position: absolute;
-    height: 0;
-    width: 0;
-    top: 0;
-    border-top: 4cm solid transparent;
-    border-bottom: 150px solid transparent;
-}
-.building::before {
-    left: -2cm;
-    border-right: 2cm solid var(--card-outer-border-color);
-}
-.building::after {
-    right: -2cm;
-    border-left: 2cm solid var(--card-outer-border-color);
-}
-
-.building.wheat {
-    background-color: rgb(209, 165, 18);
-}
-.building::before {
-    border-right: 2cm solid rgb(209, 165, 18);
-}
-.building::after {
-    border-left: 2cm solid rgb(209, 165, 18);
-}
-
-.inner-building {
-    background-color: var(--card-inner-color);
-    height: 5cm;
-    width: 4.8cm;
-}
-
-.lower-building-stripe {
-    border-top: 2cm solid var(--card-lower-stripe-color);
-    border-left: 1cm solid transparent;
-    border-right: 1cm solid transparent;
-    width: 4.77cm;
-    position: absolute;
-    z-index: 1;
     bottom: 0;
-    left: -1cm;
 }
 
-.wheat .inner-building {
-    display: flex;
+.single.card {
+    flex-direction: column;
+}
+
+.double.card {
+    flex-direction: column;
+}
+
+.triple.card {
     flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    background-color: rgb(209, 165, 18);
-    padding: 0.6cm 0 0.4cm 0;
 }
 
-.unit-space {
-    border: 0.125cm solid var(--card-outer-border-color);
-    background-color: rgb(231, 195, 78);
-    height: 1.2cm;
-    width: 1.2cm;
-    border-radius: 1.2cm;
+.quadruple.card {
+    flex-direction: row;
+}
+
+.card .circle::after {
+    display: block;
     text-align: center;
-    line-height: 1.2cm;
-    margin: 0.0625cm;
+    border: 0.25cm solid var(--card-lower-stripe-color);
+    background-color: var(--card-outer-border-color);
 }
 
-.empty-space {
-    border: 0.125cm solid transparent;
-    height: 1.2cm;
-    width: 1.2cm;
-    margin: 0.0625cm;
+.card .circle.plus::before {
+    content: "➕";
+    display: block;
+    position: absolute;
+    font-size: 0.75cm;
 }
 
-.unit-pawns .circle {
-    font-size: 1cm;
-    height: 1.5cm;
-    width: 1.5cm;
-    line-height: 1.5cm;
+.single.card .circle::after {
+    font-size: calc(var(--single-circle-size) / 2);
+    line-height: var(--single-circle-size);
+    width: var(--single-circle-size);
+    height: var(--single-circle-size);
+    border-radius: var(--single-circle-size);
+}
+.single.card .circle:nth-child(1) {
+    margin-bottom: var(--lower-stripe-height);
 }
 
-.soldier {
-    border: 0.25cm solid rgb(110, 52, 13);
-    background-color: rgb(184, 121, 79);
+.double.card .circle::after {
+    font-size: calc(var(--double-circle-size) / 2);
+    line-height: var(--double-circle-size);
+    width: var(--double-circle-size);
+    height: var(--double-circle-size);
+    border-radius: var(--double-circle-size);
+}
+.double.card .circle:nth-child(2) {
+    margin-bottom: var(--lower-stripe-height);
 }
 
-.archer {
-    border: 0.25cm solid rgb(13, 110, 21);
-    background-color: rgb(79, 184, 126);
+.triple.card .circle::after {
+    font-size: calc(var(--triple-circle-size) / 2);
+    line-height: var(--triple-circle-size);
+    width: var(--triple-circle-size);
+    height: var(--triple-circle-size);
+    border-radius: var(--triple-circle-size);
+}
+.triple.card .circle:nth-child(3) {
+    margin-bottom: var(--lower-stripe-height);
 }
 
-.knight.knight.knight {
-    width: 3cm;
-    border: 0.25cm solid rgb(110, 13, 26);
-    background-color: rgb(184, 79, 114);
+.quadruple.card .circle::after {
+    font-size: calc(var(--quadruple-circle-size) / 2);
+    line-height: var(--quadruple-circle-size);
+    width: var(--quadruple-circle-size);
+    height: var(--quadruple-circle-size);
+    border-radius: var(--quadruple-circle-size);
+}
+.quadruple.card .circle:nth-child(3) {
+    margin-bottom: var(--lower-stripe-height);
+}
+.quadruple.card .circle:nth-child(4) {
+    margin-bottom: var(--lower-stripe-height);
 }
 
-.catapult.catapult.catapult {
-    border: 0.25cm solid rgb(74, 13, 110);
-    background-color: rgb(167, 79, 184);
-    height: 4.5cm;
-    line-height: 4.5cm;
+.card .wheat.circle::after {
+    content: "🌾";
+    background-color: var(--wheat-circle-color);
+    border-color: var(--wheat-circle-border-color);
 }
 
-.dragon.dragon.dragon {
-    border: 0.25cm solid rgb(21, 110, 13);
-    background-color: rgb(100, 184, 79);
-    width: 3cm;
-    height: 3cm;
-    line-height: 3cm;
-    border-radius: 1cm;
+.card .hall.circle::after {
+    content: "🏛️";
+    background-color: var(--hall-circle-color);
+    border-color: var(--hall-circle-border-color);
+}
+
+.card .barracks.circle::after {
+    content: "⚔️";
+    background-color: var(--barracks-circle-color);
+    border-color: var(--barracks-circle-border-color);
+}
+
+.card .attack.circle::after {
+    content: "👊🏼";
+    background-color: var(--attack-circle-color);
+    border-color: var(--attack-circle-border-color);
+}
+
+.card .harbor.circle::after {
+    content: "🚢";
+    background-color: var(--harbor-circle-color);
+    border-color: var(--harbor-circle-border-color);
 }
