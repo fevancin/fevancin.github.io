@@ -1,29 +1,22 @@
 :root {
-    --card-outer-border-color: rgb(105, 105, 105);
-    --card-inner-color: rgb(185, 185, 185);
-    --card-lower-stripe-text-color: rgb(199, 199, 199);
-    --card-lower-stripe-color: rgb(58, 58, 58);
-
-    --card-width: 5.9cm;
-    --card-height: 8.6cm;
-    --card-outer-border-width: 0.25cm;
-    --lower-stripe-height: 2cm;
-
-    --single-circle-size: 3cm;
-    --double-circle-size: 2.5cm;
-    --triple-circle-size: 2cm;
-    --quadruple-circle-size: 2cm;
-
-    --wheat-circle-color: rgb(240, 184, 33);
-    --wheat-circle-border-color: rgb(194, 145, 11);
-    --hall-circle-color: rgb(201, 179, 241);
-    --hall-circle-border-color: rgb(141, 108, 202);
-    --barracks-circle-color: rgb(238, 152, 102);
-    --barracks-circle-border-color: rgb(218, 85, 51);
-    --harbor-circle-color: rgb(95, 176, 207);
-    --harbor-circle-border-color: rgb(68, 119, 196);
-    --attack-circle-color: rgb(133, 133, 133);
-    --attack-circle-border-color: rgb(66, 66, 66);
+    --unit-size: 1.25cm;
+    --unit-border-width: 0.25cm;
+    --pawn-size: 2cm;
+    
+    --unit-color: rgb(199, 199, 199);
+    --unit-border-color: rgb(58, 58, 58);
+    --archer-unit-color: rgb(37, 196, 122);
+    --archer-unit-border-color: rgb(12, 146, 52);
+    --knight-unit-color: rgb(209, 150, 83);
+    --knight-unit-border-color: rgb(158, 98, 41);
+    --catapult-unit-color: rgb(196, 123, 230);
+    --catapult-unit-border-color: rgb(141, 40, 172);
+    --dragon-unit-color: rgb(154, 219, 110);
+    --dragon-unit-border-color: rgb(79, 155, 29);
+    --castle-unit-color: rgb(219, 110, 110);
+    --castle-unit-border-color: rgb(155, 29, 29);
+    --hall-unit-color: rgb(201, 179, 241);
+    --hall-unit-border-color: rgb(141, 108, 202);
 }
 
 body {
@@ -31,10 +24,10 @@ body {
     font-family: sans-serif;
 }
 
-.card-container {
+.unit-container {
     page-break-after: always;
-    width: 21cm;
-    height: 29.7cm;
+    width: 19cm;
+    height: 27.7cm;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -42,164 +35,59 @@ body {
     justify-content: center;
     align-content: center;
     border: 1px solid black;
+    padding: 1cm;
 }
 
-.card {
-    width: var(--card-width);
-    height: var(--card-height);
-    background-color: var(--card-inner-color);
-    position: relative;
-    margin: 0.25cm;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.reverse.card {
-    background-color: var(--card-outer-border-color);
-}
-.reverse.card::after {
-    content: "🗺️";
-    font-size: 3cm;
-}
-
-.second.card::after {
-    display: block;
-    content: "❗";
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.card::before {
-    position: absolute;
-    content: "";
-    display: block;
-    width: calc(var(--card-width) + 2 * var(--card-outer-border-width));
-    height: calc(var(--card-height) + 2 * var(--card-outer-border-width));
-    top: calc(-1 * var(--card-outer-border-width));
-    left: calc(-1 * var(--card-outer-border-width));
-    background-color: var(--card-outer-border-color);
-    z-index: -1;
-    border-radius: 0.125cm;
-}
-
-.card .text {
-    background-color: var(--card-lower-stripe-color);
-    color: var(--card-lower-stripe-text-color);
-    width: 100%;
-    height: var(--lower-stripe-height);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-}
-
-.single.card {
-    flex-direction: column;
-}
-
-.double.card {
-    flex-direction: column;
-}
-
-.triple.card {
-    flex-direction: row;
-}
-
-.quadruple.card {
-    flex-direction: row;
-}
-
-.card .circle::after {
-    display: block;
+.unit {
+    background-color: var(--unit-color);
+    border: var(--unit-border-width) solid var(--unit-border-color);
     text-align: center;
-    border: 0.25cm solid var(--card-lower-stripe-color);
-    background-color: var(--card-outer-border-color);
+    font-size: 1cm;
+    width: var(--unit-size);
+    height: var(--unit-size);
+    line-height: var(--unit-size);
+    border-radius: 0.25cm;
 }
 
-.card .circle.plus::before {
-    content: "➕";
-    display: block;
-    position: absolute;
-    font-size: 0.75cm;
+.archer {
+    border-color: var(--archer-unit-border-color);
+    background-color: var(--archer-unit-color);
 }
 
-.single.card .circle::after {
-    font-size: calc(var(--single-circle-size) / 2);
-    line-height: var(--single-circle-size);
-    width: var(--single-circle-size);
-    height: var(--single-circle-size);
-    border-radius: var(--single-circle-size);
-}
-.single.card .circle:nth-child(1) {
-    margin-bottom: var(--lower-stripe-height);
+.knight {
+    border-color: var(--knight-unit-border-color);
+    background-color: var(--knight-unit-color);
+    width: calc(var(--unit-size) * 2);
 }
 
-.double.card .circle::after {
-    font-size: calc(var(--double-circle-size) / 2);
-    line-height: var(--double-circle-size);
-    width: var(--double-circle-size);
-    height: var(--double-circle-size);
-    border-radius: var(--double-circle-size);
-}
-.double.card .circle:nth-child(2) {
-    margin-bottom: var(--lower-stripe-height);
+.catapult {
+    border-color: var(--catapult-unit-border-color);
+    background-color: var(--catapult-unit-color);
+    height: calc(var(--unit-size) * 3);
+    line-height: calc(var(--unit-size) * 3);
 }
 
-.triple.card .circle::after {
-    font-size: calc(var(--triple-circle-size) / 2);
-    line-height: var(--triple-circle-size);
-    width: var(--triple-circle-size);
-    height: var(--triple-circle-size);
-    border-radius: var(--triple-circle-size);
-}
-.triple.card .circle:nth-child(3) {
-    margin-bottom: var(--lower-stripe-height);
+.dragon {
+    border-color: var(--dragon-unit-border-color);
+    background-color: var(--dragon-unit-color);
+    width: calc(var(--unit-size) * 2);
+    height: calc(var(--unit-size) * 2);
+    line-height: calc(var(--unit-size) * 2);
 }
 
-.quadruple.card .circle::after {
-    font-size: calc(var(--quadruple-circle-size) / 2);
-    line-height: var(--quadruple-circle-size);
-    width: var(--quadruple-circle-size);
-    height: var(--quadruple-circle-size);
-    border-radius: var(--quadruple-circle-size);
-}
-.quadruple.card .circle:nth-child(3) {
-    margin-bottom: var(--lower-stripe-height);
-}
-.quadruple.card .circle:nth-child(4) {
-    margin-bottom: var(--lower-stripe-height);
+.castle, .hall {
+    width: var(--pawn-size);
+    height: var(--pawn-size);
+    border-radius: var(--pawn-size);
+    line-height: var(--pawn-size);
 }
 
-.card .wheat.circle::after {
-    content: "🌾";
-    background-color: var(--wheat-circle-color);
-    border-color: var(--wheat-circle-border-color);
+.castle {
+    border-color: var(--castle-unit-border-color);
+    background-color: var(--castle-unit-color);
 }
 
-.card .hall.circle::after {
-    content: "🏛️";
-    background-color: var(--hall-circle-color);
-    border-color: var(--hall-circle-border-color);
-}
-
-.card .barracks.circle::after {
-    content: "⚔️";
-    background-color: var(--barracks-circle-color);
-    border-color: var(--barracks-circle-border-color);
-}
-
-.card .attack.circle::after {
-    content: "👊🏼";
-    background-color: var(--attack-circle-color);
-    border-color: var(--attack-circle-border-color);
-}
-
-.card .harbor.circle::after {
-    content: "🚢";
-    background-color: var(--harbor-circle-color);
-    border-color: var(--harbor-circle-border-color);
+.hall {
+    border-color: var(--hall-unit-border-color);
+    background-color: var(--hall-unit-color);
 }
