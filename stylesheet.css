@@ -64,7 +64,7 @@ body {
     height: calc(var(--unit-size) * 3 - 2 * var(--unit-border-width));
     border-color: var(--catapult-unit-border-color);
     background-color: var(--catapult-unit-color);
-    line-height: calc(var(--unit-size) * 3);
+    line-height: calc(var(--unit-size) * 3 - 0.5cm);
 }
 
 .dragon {
@@ -72,7 +72,8 @@ body {
     height: calc(var(--unit-size) * 2 - 2 * var(--unit-border-width));
     border-color: var(--dragon-unit-border-color);
     background-color: var(--dragon-unit-color);
-    line-height: calc(var(--unit-size) * 2);
+    font-size: 1.25cm;
+    line-height: calc(var(--unit-size) * 2 - 0.5cm);
 }
 
 .castle, .hall {

@@ -32,7 +32,7 @@ const units = {
         value: "🗺️"
     },
     halls: {
-        className: "archer",
+        className: "hall",
         symbol: "🏛️",
         count: 27,
         value: "🗺️"
