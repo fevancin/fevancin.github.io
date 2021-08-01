@@ -242,6 +242,9 @@ body {
     transform: translate(-50%, -40%);
     font-size: calc(var(--building-width) * 0.45);
 }
+.castle .minuscle.upper.text {
+    top: calc(var(--building-width) * -0.12);
+}
 
 .hall {
     background-color: var(--hall-color);
@@ -271,11 +274,12 @@ body {
     border-bottom-color: var(--hall-border-color);
 }
 .hall .small.upper.text {
+    top: calc(var(--building-width) * -0.11);
     font-size: calc(var(--building-width) * 0.11);
 }
 .hall .minuscle.upper.text {
     top: calc(var(--building-width) * -0.09);
-    font-size: calc(var(--building-width) * 0.09);
+    font-size: calc(var(--building-width) * 0.10);
 }
 
 .barracks {
