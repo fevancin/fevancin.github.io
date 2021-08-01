@@ -1,7 +1,20 @@
 "use strict";
 
 const buildings = [
-    "C", "M1", "M2", "M3", "C1", "C2", "C3", "C4", "P1", "P2", "P3", "G1", "G2", "G3"
+    "C", "C", "C", "C", "C", "C", "C", "C",
+    "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1", "M1",
+    "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2", "M2",
+    "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3", "M3",
+    "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1", "C1",
+    "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2",
+    "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3", "C3",
+    "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4", "C4",
+    "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1", "P1",
+    "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2", "P2",
+    "P3", "P3", "P3", "P3", "P3", "P3", "P3", "P3", "P3", "P3",
+    "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1", "G1",
+    "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2", "G2",
+    "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3", "G3"
 ];
 
 const constants = {
@@ -120,9 +133,21 @@ const constants = {
     }
 };
 
-const containerElement = document.querySelector(".container");
+const body = document.querySelector("body");
+
+let i = 0;
+let containerElement = null;
 
 buildings.forEach((buildingCode) => {
+
+    if (i % 21 === 0) {
+        if (containerElement != null) {
+            body.appendChild(containerElement);
+        }
+        containerElement = document.createElement("div");
+        containerElement.classList.add("container");
+    }
+    i++;
 
     const info = constants[buildingCode];
 
