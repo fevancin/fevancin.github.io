@@ -374,3 +374,40 @@ body {
     border-radius: 100%;
     padding: 0.1cm;
 }
+
+/* ICONS */
+
+.icon::after {
+    display: block;
+    position: absolute;
+    padding: 0.125cm;
+    border-radius: 100%;
+    font-size: 0.5cm;
+    font-weight: bold;
+    color: rgb(27, 27, 27);
+}
+
+.castle .icon::after {
+    content: "6⬢";
+    top: calc(var(--building-width) * 0.05);
+    right: calc(var(--building-width) * -0.15);
+    background-color: var(--castle-border-color);
+}
+
+.hall .icon::after {
+    top: calc(var(--building-width) * 0.012);
+    right: calc(var(--building-width) * -0.25);
+    background-color: var(--hall-border-color);
+}
+
+.hall .icon.one::after {
+    content: "4⬢";
+}
+
+.hall .icon.two::after {
+    content: "5⬢";
+}
+
+.hall .icon.three::after {
+    content: "6⬢";
+}

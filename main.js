@@ -119,7 +119,7 @@ const constants = {
         icon: "🚢",
         lowerText: "⭐",
         lowerTextSize: "big",
-        upperText: "?",
+        upperText: "🚣🏼",
         upperTextSize: "big"
     },
     "P2": {
@@ -127,7 +127,7 @@ const constants = {
         icon: "🚢",
         lowerText: "⭐⭐",
         lowerTextSize: "medium",
-        upperText: "?",
+        upperText: "🚣🏼",
         upperTextSize: "big"
     },
     "P3": {
@@ -135,7 +135,7 @@ const constants = {
         icon: "🚢",
         lowerText: "⭐⭐⭐",
         lowerTextSize: "small",
-        upperText: "?",
+        upperText: "🚣🏼🗡️",
         upperTextSize: "big"
     }
 };
@@ -170,6 +170,16 @@ buildings.forEach((buildingCode) => {
     iconElement.classList.add("icon");
     iconElement.innerHTML = info.icon;
     buildingElement.appendChild(iconElement);
+    
+    if (buildingCode === "M1") {
+        iconElement.classList.add("one");
+    }
+    if (buildingCode === "M2") {
+        iconElement.classList.add("two");
+    }
+    if (buildingCode === "M3") {
+        iconElement.classList.add("three");
+    }
 
     ["upper", "lower"].forEach((position) => {
         if (info[position + "Text"] !== null) {
@@ -191,3 +201,7 @@ buildings.forEach((buildingCode) => {
     });
     containerElement.appendChild(buildingElement);
 });
+
+if (i % 21 !== 0 && containerElement != null) {
+    body.appendChild(containerElement);
+}
