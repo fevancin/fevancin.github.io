@@ -119,7 +119,7 @@ const constants = {
         icon: "🚢",
         lowerText: "⭐",
         lowerTextSize: "big",
-        upperText: "🚣🏼",
+        upperText: "🔄",
         upperTextSize: "big"
     },
     "P2": {
@@ -127,7 +127,7 @@ const constants = {
         icon: "🚢",
         lowerText: "⭐⭐",
         lowerTextSize: "medium",
-        upperText: "🚣🏼",
+        upperText: "🔄",
         upperTextSize: "big"
     },
     "P3": {
@@ -135,7 +135,7 @@ const constants = {
         icon: "🚢",
         lowerText: "⭐⭐⭐",
         lowerTextSize: "small",
-        upperText: "🚣🏼🗡️",
+        upperText: "🔄🗡️",
         upperTextSize: "big"
     }
 };
