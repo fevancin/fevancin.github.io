@@ -4,7 +4,7 @@
     --building-stripe-text-color: rgb(199, 199, 199);
     --building-stripe-color: rgb(58, 58, 58);
 
-    --building-width: 4.5cm;
+    --building-width: 4.6cm;
     --building-outer-border-width: 0.25cm;
     --building-stripe-height: 0.25cm;
 
@@ -43,7 +43,7 @@ body {
 .building {
     margin-right: calc(var(--building-outer-border-width) * 2);
     margin-bottom: calc(var(--building-outer-border-width) * 2);
-    margin-top: calc(var(--building-width) * 0.5 * 0.5769);
+    margin-top: calc(var(--building-width) * 0.5 * 0.5769 * 0.9);
     width: var(--building-width);
     height: calc(var(--building-width) * 0.5769);
     background-color: var(--building-inner-color);
@@ -75,7 +75,7 @@ body {
     margin-left: 0.5cm;
 }
 .building:nth-child(7n+5) {
-    margin-left: calc(var(--building-width) * 0.67);
+    margin-left: calc(var(--building-width) * 0.66);
 }
 
 /* STRIPES */
@@ -279,7 +279,7 @@ body {
 }
 .hall .minuscle.upper.text {
     top: calc(var(--building-width) * -0.09);
-    font-size: calc(var(--building-width) * 0.10);
+    font-size: calc(var(--building-width) * 0.1);
 }
 
 .barracks {
@@ -369,9 +369,9 @@ body {
     border-bottom-color: var(--wheat-border-color);
 }
 .wheat td {
-    font-size: 0.5cm;
-    background-color: var(--wheat-border-color);
-    border-radius: 100%;
+    font-size: 0.7cm;
+    /* background-color: var(--wheat-border-color); */
+    /* border-radius: 100%; */
     padding: 0.1cm;
 }
 

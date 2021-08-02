@@ -2,19 +2,18 @@
 
 const numbers = {
     "C": 6,
-    "M1": 30,
-    "M2": 30,
-    "M3": 20,
-    "C1": 40,
-    "C2": 40,
-    "C3": 30,
-    "C4": 30,
-    "G1": 40,
-    "G2": 40,
-    "G3": 30,
-    "P1": 20,
-    "P2": 20,
-    "P3": 10
+    "M1": 20,
+    "M2": 10,
+    "M3": 10,
+    "C1": 30,
+    "C2": 30,
+    "C3": 20,
+    "C4": 20,
+    "G1": 30,
+    "G2": 30,
+    "G3": 20,
+    "P1": 10,
+    "P2": 10
 };
 
 const buildings = [];
@@ -29,7 +28,7 @@ const constants = {
         className: "castle",
         icon: "🏰",
         lowerText: null,
-        upperText: "🛡️<br>🛡️🛡️🛡️",
+        upperText: "🛡️🛡️<br>🛡️🛡️🛡️🛡️",
         upperTextSize: "minuscle"
     },
     "M1": {
@@ -37,7 +36,7 @@ const constants = {
         icon: "🏛️",
         lowerText: "⭐",
         lowerTextSize: "big",
-        upperText: "🛡️🛡️",
+        upperText: "🛡️🛡️🛡️",
         upperTextSize: "medium"
     },
     "M2": {
@@ -119,7 +118,7 @@ const constants = {
         icon: "🚢",
         lowerText: "⭐",
         lowerTextSize: "big",
-        upperText: "🔄",
+        upperText: "🔄🗡️",
         upperTextSize: "big"
     },
     "P2": {
@@ -127,8 +126,8 @@ const constants = {
         icon: "🚢",
         lowerText: "⭐⭐",
         lowerTextSize: "medium",
-        upperText: "🔄",
-        upperTextSize: "big"
+        upperText: "🔄🗡️💥",
+        upperTextSize: "minuscle"
     },
     "P3": {
         className: "harbor",
