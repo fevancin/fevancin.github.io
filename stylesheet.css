@@ -1,28 +1,35 @@
 :root {
-    --building-outer-border-color: rgb(105, 105, 105);
-    --building-inner-color: rgb(185, 185, 185);
-    --building-stripe-text-color: rgb(199, 199, 199);
-    --building-stripe-color: rgb(58, 58, 58);
+    --card-outer-border-color: rgb(105, 105, 105);
+    --card-inner-color: rgb(185, 185, 185);
+    --card-lower-stripe-text-color: rgb(199, 199, 199);
+    --card-lower-stripe-color: rgb(58, 58, 58);
 
-    --building-width: 4.6cm;
-    --building-outer-border-width: 0.25cm;
-    --building-stripe-height: 0.25cm;
+    --card-width: 5.9cm;
+    --card-height: 8.6cm;
+    --card-outer-border-width: 0.25cm;
+    --lower-stripe-height: 2cm;
 
-    --castle-color: rgb(170, 0, 0);
-    --castle-border-color: rgb(129, 49, 49);
-    --wheat-color: rgb(240, 184, 33);
-    --wheat-border-color: rgb(194, 145, 11);
-    --hall-color: rgb(201, 179, 241);
-    --hall-border-color: rgb(141, 108, 202);
-    --barracks-color: rgb(238, 152, 102);
-    --barracks-border-color: rgb(218, 85, 51);
-    --harbor-color: rgb(95, 176, 207);
-    --harbor-border-color: rgb(68, 119, 196);
+    --single-circle-size: 3cm;
+    --double-circle-size: 2.5cm;
+    --triple-circle-size: 2cm;
+    --quadruple-circle-size: 2cm;
+
+    --wheat-circle-color: rgb(240, 184, 33);
+    --wheat-circle-border-color: rgb(194, 145, 11);
+    --hall-circle-color: rgb(201, 179, 241);
+    --hall-circle-border-color: rgb(141, 108, 202);
+    --barracks-circle-color: rgb(238, 152, 102);
+    --barracks-circle-border-color: rgb(218, 85, 51);
+    --harbor-circle-color: rgb(95, 176, 207);
+    --harbor-circle-border-color: rgb(68, 119, 196);
+    --attack-circle-color: rgb(133, 133, 133);
+    --attack-circle-border-color: rgb(66, 66, 66);
 }
 
 body {
     margin: 0;
-    font-family: serif;
+    font-family: sans-serif;
+    font-size: 0.75cm;
 }
 
 .container {
@@ -35,379 +42,165 @@ body {
     flex-wrap: wrap;
     align-items: center;
     align-content: center;
-    justify-content: start;
+    justify-content: center;
 }
 
-/* BUILDING */
-
-.building {
-    margin-right: calc(var(--building-outer-border-width) * 2);
-    margin-bottom: calc(var(--building-outer-border-width) * 2);
-    margin-top: calc(var(--building-width) * 0.5 * 0.5769 * 0.9);
-    width: var(--building-width);
-    height: calc(var(--building-width) * 0.5769);
-    background-color: var(--building-inner-color);
+.card {
+    width: var(--card-width);
+    height: var(--card-height);
+    margin: 0.25cm;
+    background-color: var(--card-inner-color);
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-.building::before {
-    content: " ";
-    width: 0;
-    height: 0;
-    border-bottom: calc(var(--building-width) * 0.5 * 0.5769) solid var(--building-inner-color);
-    border-left: calc(var(--building-width) * 0.5) solid transparent;
-    border-right: calc(var(--building-width) * 0.5) solid transparent;
+.reverse {
+    background-color: var(--card-outer-border-color);
+}
+.reverse::after {
+    content: "🗺️";
+    font-size: 3cm;
+}
+
+.second::after {
+    display: block;
+    content: "❗";
     position: absolute;
-    top: calc(var(--building-width) * -0.5 * 0.5769);
-}
-
-.building::after {
-    content: "";
-    width: 0;
-    position: absolute;
-    bottom: calc(var(--building-width) * -0.5 * 0.5769);
-    border-top: calc(var(--building-width) * 0.5 * 0.5769) solid var(--building-inner-color);
-    border-left: calc(var(--building-width) * 0.5) solid transparent;
-    border-right: calc(var(--building-width) * 0.5) solid transparent;
-}
-
-.building:nth-child(7n+1) {
-    margin-left: 0.5cm;
-}
-.building:nth-child(7n+5) {
-    margin-left: calc(var(--building-width) * 0.66);
-}
-
-/* STRIPES */
-
-.stripe {
-    width: var(--building-width);
-    height: var(--building-stripe-height);
-    background-color: var(--building-stripe-color);
-    position: absolute;
-    z-index: 1;
-}
-
-.lower.stripe {
-    bottom: 0;
-}
-
-.upper.stripe {
     top: 0;
+    left: 0;
 }
 
-.lower.stripe::after {
+.card::before {
+    display: block;
     content: "";
-    width: 0;
     position: absolute;
-    bottom: calc(var(--building-width) * -0.5 * 0.5769);
-    border-top: calc(var(--building-width) * 0.5 * 0.5769) solid var(--building-stripe-color);
-    border-left: calc(var(--building-width) * 0.5) solid transparent;
-    border-right: calc(var(--building-width) * 0.5) solid transparent;
-}
-
-.upper.stripe::before {
-    content: " ";
-    width: 0;
-    height: 0;
-    border-bottom: calc(var(--building-width) * 0.5 * 0.5769) solid var(--building-stripe-color);
-    border-left: calc(var(--building-width) * 0.5) solid transparent;
-    border-right: calc(var(--building-width) * 0.5) solid transparent;
-    position: absolute;
-    top: calc(var(--building-width) * -0.5 * 0.5769);
-}
-
-/* BORDER */
-
-.border {
-    margin-top: calc(var(--building-outer-border-width) * -0.35);
-    margin-left: calc(var(--building-outer-border-width) * -1);
-    width: calc(var(--building-width) + 2 * var(--building-outer-border-width));
-    height: calc(var(--building-width) * 0.5769 + 2 * var(--building-outer-border-width) * 0.35);
-    background-color: var(--building-outer-border-color);
-    position: relative;
+    width: calc(var(--card-width) + 2 * var(--card-outer-border-width));
+    height: calc(var(--card-height) + 2 * var(--card-outer-border-width));
+    top: calc(-1 * var(--card-outer-border-width));
+    left: calc(-1 * var(--card-outer-border-width));
+    border-radius: 0.125cm;
+    background-color: var(--card-outer-border-color);
     z-index: -1;
 }
 
-.border::before {
-    content: " ";
-    width: 0;
-    height: 0;
-    border-bottom: calc(var(--building-width) * 0.5 * 0.5769 + var(--building-outer-border-width)) solid var(--building-outer-border-color);
-    border-left: calc(var(--building-width) * 0.5 + var(--building-outer-border-width)) solid transparent;
-    border-right: calc(var(--building-width) * 0.5 + var(--building-outer-border-width)) solid transparent;
-    position: absolute;
-    top: calc(var(--building-width) * -0.5 * 0.5769 - var(--building-outer-border-width));
-}
-
-.border::after {
-    content: "";
-    width: 0;
-    position: absolute;
-    bottom: calc(var(--building-width) * -0.5 * 0.5769 - var(--building-outer-border-width));
-    border-top: calc(var(--building-width) * 0.5 * 0.5769 + var(--building-outer-border-width)) solid var(--building-outer-border-color);
-    border-left: calc(var(--building-width) * 0.5 + var(--building-outer-border-width)) solid transparent;
-    border-right: calc(var(--building-width) * 0.5 + var(--building-outer-border-width)) solid transparent;
-}
-
-/* ICON */
-
-.icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: calc(var(--building-width) * 0.3);
-    z-index: 2;
-}
-
-/* INNER TEXT */
-
 .text {
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    font-size: calc(var(--building-width) * 0.15);
+    bottom: 0;
+    width: 100%;
+    height: var(--lower-stripe-height);
+    background-color: var(--card-lower-stripe-color);
+    color: var(--card-lower-stripe-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.single {
+    flex-direction: column;
+}
+
+.double {
+    flex-direction: column;
+}
+
+.triple {
+    flex-direction: row;
+}
+
+.quadruple {
+    flex-direction: row;
+}
+
+.circle::after {
+    display: block;
+    border: 0.25cm solid var(--card-lower-stripe-color);
+    background-color: var(--card-outer-border-color);
     text-align: center;
 }
-.lower.text {
-    bottom: calc(var(--building-width) * -0.27);
-}
-.upper.text {
-    top: calc(var(--building-width) * -0.1);
-}
 
-.medium.text {
-    font-size: calc(var(--building-width) * 0.15);
-}
-.medium.lower.text {
-    bottom: calc(var(--building-width) * -0.25);
-}
-.medium.upper.text {
-    top: calc(var(--building-width) * -0.08);
-}
-
-.small.text {
-    font-size: calc(var(--building-width) * 0.13);
-}
-.small.lower.text {
-    bottom: calc(var(--building-width) * -0.2);
-}
-.small.upper.text {
-    top: calc(var(--building-width) * -0.07);
-}
-
-.minuscle.text {
-    font-size: calc(var(--building-width) * 0.12);
-}
-.minuscle.lower.text {
-    bottom: calc(var(--building-width) * -0.18);
-}
-.minuscle.upper.text {
-    top: calc(var(--building-width) * -0.05);
-    font-size: calc(var(--building-width) * 0.113);
-}
-
-/* TYPES */
-
-.castle {
-    background-color: var(--castle-color);
-}
-.castle::after {
-    border-top-color: var(--castle-color);
-}
-.castle::before {
-    border-bottom-color: var(--castle-color);
-}
-.castle .border {
-    background-color: var(--castle-border-color);
-}
-.castle .border::after {
-    border-top-color: var(--castle-border-color);
-}
-.castle .border::before {
-    border-bottom-color: var(--castle-border-color);
-}
-.castle .stripe {
-    background-color: var(--castle-border-color);
-}
-.castle .lower.stripe::after {
-    border-top-color: var(--castle-border-color);
-}
-.castle .upper.stripe::before {
-    border-bottom-color: var(--castle-border-color);
-}
-.castle .icon {
-    transform: translate(-50%, -40%);
-    font-size: calc(var(--building-width) * 0.45);
-}
-.castle .minuscle.upper.text {
-    top: calc(var(--building-width) * -0.12);
-}
-
-.hall {
-    background-color: var(--hall-color);
-}
-.hall::after {
-    border-top-color: var(--hall-color);
-}
-.hall::before {
-    border-bottom-color: var(--hall-color);
-}
-.hall .border {
-    background-color: var(--hall-border-color);
-}
-.hall .border::after {
-    border-top-color: var(--hall-border-color);
-}
-.hall .border::before {
-    border-bottom-color: var(--hall-border-color);
-}
-.hall .stripe {
-    background-color: var(--hall-border-color);
-}
-.hall .lower.stripe::after {
-    border-top-color: var(--hall-border-color);
-}
-.hall .upper.stripe::before {
-    border-bottom-color: var(--hall-border-color);
-}
-.hall .small.upper.text {
-    top: calc(var(--building-width) * -0.11);
-    font-size: calc(var(--building-width) * 0.11);
-}
-.hall .minuscle.upper.text {
-    top: calc(var(--building-width) * -0.09);
-    font-size: calc(var(--building-width) * 0.1);
-}
-
-.barracks {
-    background-color: var(--barracks-color);
-}
-.barracks::after {
-    border-top-color: var(--barracks-color);
-}
-.barracks::before {
-    border-bottom-color: var(--barracks-color);
-}
-.barracks .border {
-    background-color: var(--barracks-border-color);
-}
-.barracks .border::after {
-    border-top-color: var(--barracks-border-color);
-}
-.barracks .border::before {
-    border-bottom-color: var(--barracks-border-color);
-}
-.barracks .stripe {
-    background-color: var(--barracks-border-color);
-}
-.barracks .lower.stripe::after {
-    border-top-color: var(--barracks-border-color);
-}
-.barracks .upper.stripe::before {
-    border-bottom-color: var(--barracks-border-color);
-}
-.barracks .big.upper.text {
-    font-size: calc(var(--building-width) * 0.18);
-}
-
-.harbor {
-    background-color: var(--harbor-color);
-}
-.harbor::after {
-    border-top-color: var(--harbor-color);
-}
-.harbor::before {
-    border-bottom-color: var(--harbor-color);
-}
-.harbor .border {
-    background-color: var(--harbor-border-color);
-}
-.harbor .border::after {
-    border-top-color: var(--harbor-border-color);
-}
-.harbor .border::before {
-    border-bottom-color: var(--harbor-border-color);
-}
-.harbor .stripe {
-    background-color: var(--harbor-border-color);
-}
-.harbor .lower.stripe::after {
-    border-top-color: var(--harbor-border-color);
-}
-.harbor .upper.stripe::before {
-    border-bottom-color: var(--harbor-border-color);
-}
-
-.wheat {
-    background-color: var(--wheat-color);
-}
-.wheat::after {
-    border-top-color: var(--wheat-color);
-}
-.wheat::before {
-    border-bottom-color: var(--wheat-color);
-}
-.wheat .border {
-    background-color: var(--wheat-border-color);
-}
-.wheat .border::after {
-    border-top-color: var(--wheat-border-color);
-}
-.wheat .border::before {
-    border-bottom-color: var(--wheat-border-color);
-}
-.wheat .stripe {
-    background-color: var(--wheat-border-color);
-}
-.wheat .lower.stripe::after {
-    border-top-color: var(--wheat-border-color);
-}
-.wheat .upper.stripe::before {
-    border-bottom-color: var(--wheat-border-color);
-}
-.wheat td {
-    font-size: 0.7cm;
-    /* background-color: var(--wheat-border-color); */
-    /* border-radius: 100%; */
-    padding: 0.1cm;
-}
-
-/* ICONS */
-
-.icon::after {
+.circle.plus::before {
+    content: "➕";
     display: block;
     position: absolute;
-    padding: 0.125cm;
-    border-radius: 100%;
-    font-size: 0.5cm;
-    font-weight: bold;
-    color: rgb(27, 27, 27);
+    font-size: 0.75cm;
 }
 
-.castle .icon::after {
-    content: "6⬢";
-    top: calc(var(--building-width) * 0.05);
-    right: calc(var(--building-width) * -0.15);
-    background-color: var(--castle-border-color);
+.single .circle::after {
+    width: var(--single-circle-size);
+    height: var(--single-circle-size);
+    border-radius: var(--single-circle-size);
+    font-size: calc(var(--single-circle-size) / 2);
+    line-height: var(--single-circle-size);
+}
+.single .circle:nth-child(1) {
+    margin-bottom: var(--lower-stripe-height);
 }
 
-.hall .icon::after {
-    top: calc(var(--building-width) * 0.012);
-    right: calc(var(--building-width) * -0.25);
-    background-color: var(--hall-border-color);
+.double .circle::after {
+    width: var(--double-circle-size);
+    height: var(--double-circle-size);
+    border-radius: var(--double-circle-size);
+    font-size: calc(var(--double-circle-size) / 2);
+    line-height: var(--double-circle-size);
+}
+.double .circle:nth-child(2) {
+    margin-bottom: var(--lower-stripe-height);
 }
 
-.hall .icon.one::after {
-    content: "4⬢";
+.triple .circle::after {
+    width: var(--triple-circle-size);
+    height: var(--triple-circle-size);
+    border-radius: var(--triple-circle-size);
+    font-size: calc(var(--triple-circle-size) / 2);
+    line-height: var(--triple-circle-size);
+}
+.triple .circle:nth-child(3) {
+    margin-bottom: var(--lower-stripe-height);
 }
 
-.hall .icon.two::after {
-    content: "5⬢";
+.quadruple .circle::after {
+    width: var(--quadruple-circle-size);
+    height: var(--quadruple-circle-size);
+    border-radius: var(--quadruple-circle-size);
+    font-size: calc(var(--quadruple-circle-size) / 2);
+    line-height: var(--quadruple-circle-size);
+}
+.quadruple .circle:nth-child(3) {
+    margin-bottom: var(--lower-stripe-height);
+}
+.quadruple .circle:nth-child(4) {
+    margin-bottom: var(--lower-stripe-height);
 }
 
-.hall .icon.three::after {
-    content: "6⬢";
+.wheat.circle::after {
+    content: "🌾";
+    background-color: var(--wheat-circle-color);
+    border-color: var(--wheat-circle-border-color);
+}
+
+.hall.circle::after {
+    content: "🏛️";
+    background-color: var(--hall-circle-color);
+    border-color: var(--hall-circle-border-color);
+}
+
+.barracks.circle::after {
+    content: "⚔️";
+    background-color: var(--barracks-circle-color);
+    border-color: var(--barracks-circle-border-color);
+}
+
+.harbor.circle::after {
+    content: "🚢";
+    background-color: var(--harbor-circle-color);
+    border-color: var(--harbor-circle-border-color);
+}
+
+.attack.circle::after {
+    content: "👊🏼";
+    background-color: var(--attack-circle-color);
+    border-color: var(--attack-circle-border-color);
 }

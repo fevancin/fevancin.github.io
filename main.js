@@ -1,206 +1,159 @@
 "use strict";
 
-const numbers = {
-    "C": 6,
-    "M1": 20,
-    "M2": 10,
-    "M3": 10,
-    "C1": 30,
-    "C2": 30,
-    "C3": 20,
-    "C4": 20,
-    "G1": 30,
-    "G2": 30,
-    "G3": 20,
-    "P1": 10,
-    "P2": 10
+const cards = [
+    "G",
+    "G",
+    "G",
+    "G",
+    "C",
+    "C",
+    "C",
+    "C",
+    "M",
+    "M",
+    "G P",
+    "G P",
+    "G P",
+    "C P",
+    "C P",
+    "C P",
+    "G M",
+    "G M",
+    "G M",
+    "G M",
+    "G M",
+    "G C+",
+    "G C+",
+    "G C",
+    "G C",
+    "P C+",
+    "C A",
+    "C A",
+    "C A",
+    "C A",
+    "G A",
+    "G A",
+    "G A",
+    "G A",
+    "C M",
+    "C M",
+    "C M",
+    "C M",
+    "C M",
+    "C G+",
+    "C G+",
+    "P M",
+    "P G+",
+    "G C M+2",
+    "G C+ M+2",
+    "G C+ M+2",
+    "C G+ M+2",
+    "C G+ M+2",
+    "C G P+",
+    "G P+ M",
+    "C G P",
+    "G C A",
+    "2 C A",
+    "2 G A",
+    "2 G C+ P+",
+    "2 G+ P+",
+    "2 G+ C+ A",
+    "2 C A P+",
+    "2 G A P+",
+    "2 C C+ P+",
+    "2 G G+ P+",
+    "2 C+ P+ M",
+    "2 G+ P+ M",
+    "2 C C+ A",
+    "2 G G+ A",
+    "2 C A M",
+    "2 G A M",
+    "2 P A M",
+    "2 G G+ A M+3",
+    "2 C C+ A M+3",
+    "2 G C+ A M+3",
+    "2 C G+ A M+3",
+    "2 G M P+ M+2",
+    "2 C P P+ M+2"
+];
+
+const descriptions = {
+    "C": "Caserma",
+    "G": "Campo di grano",
+    "M": "Municipio",
+    "P": "Porto",
+    "C+": "Migliora Caserma",
+    "G+": "Migliora Campo di grano",
+    "M+2": "Migliora Municipio al livello 2",
+    "M+3": "Migliora Municipio al livello 3",
+    "P+": "Migliora Porto",
+    "A": "Attacco"
 };
 
-const buildings = [];
-for (const name in numbers) {
-    for (let i = 0; i < numbers[name]; i++) {
-        buildings.push("" + name);
-    }
-}
-
-const constants = {
-    "C": {
-        className: "castle",
-        icon: "🏰",
-        lowerText: null,
-        upperText: "🛡️🛡️<br>🛡️🛡️🛡️🛡️",
-        upperTextSize: "minuscle"
-    },
-    "M1": {
-        className: "hall",
-        icon: "🏛️",
-        lowerText: "⭐",
-        lowerTextSize: "big",
-        upperText: "🛡️🛡️🛡️",
-        upperTextSize: "medium"
-    },
-    "M2": {
-        className: "hall",
-        icon: "🏛️",
-        lowerText: "⭐⭐",
-        lowerTextSize: "medium",
-        upperText: "🛡️<br>🛡️🛡️🛡️",
-        upperTextSize: "small"
-    },
-    "M3": {
-        className: "hall",
-        icon: "🏛️",
-        lowerText: "⭐⭐⭐",
-        lowerTextSize: "small",
-        upperText: "🛡️🛡️<br>🛡️🛡️🛡️🛡️",
-        upperTextSize: "minuscle"
-    },
-    "C1": {
-        className: "barracks",
-        icon: "⚔️",
-        lowerText: "⭐",
-        lowerTextSize: "big",
-        upperText: "🏹",
-        upperTextSize: "big"
-    },
-    "C2": {
-        className: "barracks",
-        icon: "⚔️",
-        lowerText: "⭐⭐",
-        lowerTextSize: "medium",
-        upperText: "🐎",
-        upperTextSize: "big"
-    },
-    "C3": {
-        className: "barracks",
-        icon: "⚔️",
-        lowerText: "⭐⭐⭐",
-        lowerTextSize: "small",
-        upperText: "💣",
-        upperTextSize: "big"
-    },
-    "C4": {
-        className: "barracks",
-        icon: "⚔️",
-        lowerText: "⭐⭐⭐⭐",
-        lowerTextSize: "minuscle",
-        upperText: "🐉",
-        upperTextSize: "big"
-    },
-    "G1": {
-        className: "wheat",
-        icon: "<table><tr><td>🌽</td><td>🌽</td></tr></table>",
-        lowerText: "⭐",
-        lowerTextSize: "big",
-        upperText: "🌾",
-        upperTextSize: "big"
-    },
-    "G2": {
-        className: "wheat",
-        icon: "<table><tr><td>🌽</td><td>🌽</td></tr>" +
-            "<tr><td>🌽</td><td>🌽</td></tr></table>",
-        lowerText: "⭐⭐",
-        lowerTextSize: "medium",
-        upperText: "🌾",
-        upperTextSize: "big"
-    },
-    "G3": {
-        className: "wheat",
-        icon: "<table><tr><td>🌽</td><td>🌽</td><td>🌽</td>" +
-            "</tr><tr><td>🌽</td><td>🌽</td><td>🌽</td></tr></table>",
-        lowerText: "⭐⭐⭐",
-        lowerTextSize: "small",
-        upperText: "🌾",
-        upperTextSize: "big"
-    },
-    "P1": {
-        className: "harbor",
-        icon: "🚢",
-        lowerText: "⭐",
-        lowerTextSize: "big",
-        upperText: "🔄🗡️",
-        upperTextSize: "big"
-    },
-    "P2": {
-        className: "harbor",
-        icon: "🚢",
-        lowerText: "⭐⭐",
-        lowerTextSize: "medium",
-        upperText: "🔄🗡️💥",
-        upperTextSize: "minuscle"
-    },
-    "P3": {
-        className: "harbor",
-        icon: "🚢",
-        lowerText: "⭐⭐⭐",
-        lowerTextSize: "small",
-        upperText: "🔄🗡️",
-        upperTextSize: "big"
-    }
+const circleClasses = {
+    "C": "barracks",
+    "G": "wheat",
+    "M": "hall",
+    "P": "harbor",
+    "C+": "barracks",
+    "G+": "wheat",
+    "M+2": "hall",
+    "M+3": "hall",
+    "P+": "harbor",
+    "A": "attack"
 };
+
+const betweenWord = " o <br>";
 
 const body = document.querySelector("body");
-
 let i = 0;
-let containerElement = null;
+let cardContainer = null;
 
-buildings.forEach((buildingCode) => {
+cards.forEach((card) => {
 
-    if (i % 21 === 0) {
-        if (containerElement != null) {
-            body.appendChild(containerElement);
-        }
-        containerElement = document.createElement("div");
-        containerElement.classList.add("container");
-    }
-    i++;
-
-    const info = constants[buildingCode];
-
-    const buildingElement = document.createElement("div");
-    buildingElement.classList.add(info.className);
-    buildingElement.classList.add("building");
-
-    const borderElement = document.createElement("div");
-    borderElement.classList.add("border");
-    buildingElement.appendChild(borderElement);
-
-    const iconElement = document.createElement("div");
-    iconElement.classList.add("icon");
-    iconElement.innerHTML = info.icon;
-    buildingElement.appendChild(iconElement);
-    
-    if (buildingCode === "M1") {
-        iconElement.classList.add("one");
-    }
-    if (buildingCode === "M2") {
-        iconElement.classList.add("two");
-    }
-    if (buildingCode === "M3") {
-        iconElement.classList.add("three");
+    if (i % 9 === 0) {
+        cardContainer = document.createElement("div");
+        cardContainer.classList.add("container");
+        body.appendChild(cardContainer);
     }
 
-    ["upper", "lower"].forEach((position) => {
-        if (info[position + "Text"] !== null) {
+    const cardElement = document.createElement("div");
 
-            if (position === "upper") {
-                const stripeElement = document.createElement("div");
-                stripeElement.classList.add(position);
-                stripeElement.classList.add("stripe");
-                buildingElement.appendChild(stripeElement);
-            }
+    let circles = card.split(" ");
+    if (circles[0] === "2") {
+        circles.shift();
+        cardElement.classList.add("second");
+    }
 
-            const textElement = document.createElement("div");
-            textElement.classList.add(info[position + "TextSize"]);
-            textElement.classList.add(position);
-            textElement.classList.add("text");
-            textElement.innerHTML = info[position + "Text"];
-            buildingElement.appendChild(textElement);
+    switch (circles.length) {
+        case 1: cardElement.classList.add("single"); break;
+        case 2: cardElement.classList.add("double"); break;
+        case 3: cardElement.classList.add("triple"); break;
+        case 4: cardElement.classList.add("quadruple"); break;
+    }
+
+    cardElement.classList.add("card");
+
+    let string = "";
+    circles.forEach((circle, index) => {
+        const circleElement = document.createElement("div");
+        circleElement.classList.add(circleClasses[circle]);
+        circleElement.classList.add("circle");
+        if (circle.length > 1) circleElement.classList.add("plus");
+        cardElement.appendChild(circleElement);
+
+        string += descriptions[circle];
+        if (index < circles.length - 1) {
+            string += betweenWord;
         }
     });
-    containerElement.appendChild(buildingElement);
-});
 
-if (i % 21 !== 0 && containerElement != null) {
-    body.appendChild(containerElement);
-}
+    const descriptionElement = document.createElement("div");
+    descriptionElement.innerHTML = string;
+    descriptionElement.classList.add("text");
+    cardElement.appendChild(descriptionElement);
+
+    cardContainer.appendChild(cardElement);
+
+    i++;
+});
