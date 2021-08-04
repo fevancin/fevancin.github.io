@@ -2,7 +2,7 @@
 
 const cards = [
     "G C", "G C+", "G+ C+", "G+ C+", "C+ M", "G+ M", "G+ M", "G+ A", "C+ A",
-    "G C C+", "G C C+", "G C C+", "G C G+", "G C G+", "G C G+", "G C M", "C G+ M", "G C+ M", "G+ C+ M", "G+ C+ M", "G+ C+ M",
+    "G C C+", "G C C+", "G C G+", "G C G+", "G C G+", "G C M", "C G+ M", "G C+ M", "G+ C+ M", "G+ C+ M",
     "G C P", "G C P", "C C+ P", "G G+ P", "C G+ P+", "G C+ P+", "G+ C+ P+", "G C A", "G C+ A", "C G+ A", "G+ C+ A", "G+ C+ A", "G+ C+ A",
 
     "2 G C", "2 G C+", "2 C G+", "2 G+ C+", "2 G+ C+", "2 G+ C+", "2 G M",
