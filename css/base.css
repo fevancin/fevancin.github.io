@@ -1,1 +1,58 @@
+:root {
+    --page-width: 29.7cm;
+    --page-height: 21cm;
+    --page-padding: 0.5cm;
 
+    --default-color: rgb(192, 192, 192);
+    --default-border-color: rgb(83, 83, 83);
+    --archer-color: rgb(0, 153, 82);
+    --archer-border-color: rgb(0, 90, 41);
+    --knight-color: rgb(153, 99, 0);
+    --knight-border-color: rgb(90, 54, 0);
+    --wizard-color: rgb(135, 0, 153);
+    --wizard-border-color: rgb(83, 0, 90);
+    --dragon-color: rgb(0, 153, 25);
+    --dragon-border-color: rgb(0, 90, 15);
+
+    --castle-color: rgb(153, 0, 0);
+    --castle-border-color: rgb(110, 0, 0);
+    --hall-color: rgb(186, 98, 221);
+    --hall-border-color: rgb(136, 49, 170);
+    --wheat-color: rgb(240, 201, 30);
+    --wheat-border-color: rgb(206, 167, 38);
+    --barracks-color: rgb(241, 96, 0);
+    --barracks-border-color: rgb(184, 68, 0);
+    --port-color: rgb(0, 175, 206);
+    --port-border-color: rgb(0, 134, 158);
+    --station-color: rgb(0, 130, 153);
+    --station-border-color: rgb(0, 84, 90);
+    --moai-color: rgb(146, 149, 170);
+    --moai-border-color: rgb(84, 84, 105);
+    --tree-color: rgb(63, 172, 0);
+    --tree-border-color: rgb(14, 124, 0);
+
+    --attack-color: rgb(90, 90, 90);
+    --attack-border-color: rgb(61, 61, 61);
+}
+
+body {
+    margin: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    font-family: sans-serif;
+}
+
+.page {
+    width: calc(var(--page-width) - 2 * var(--page-padding));
+    height: calc(var(--page-height) - 2 * var(--page-padding));
+    padding: var(--page-padding);
+    border: 1px solid black;
+    break-after: always;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}

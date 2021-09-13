@@ -1,0 +1,138 @@
+:root {
+    --page-padding: 0cm;
+
+    --card-width: 5.9cm;
+    --card-height: 8.6cm;
+    --card-border-width: 0.25cm;
+
+    --single-badge-width: 3cm;
+    --double-badge-width: 2.75cm;
+    --triple-badge-width: 2.25cm;
+    --quadruple-badge-width: 2.25cm;
+
+    --single-badge-font-size: 1.5cm;
+    --double-badge-font-size: 1.25cm;
+    --triple-badge-font-size: 1cm;
+    --quadruple-badge-font-size: 1cm;
+}
+
+.card {
+    width: calc(var(--card-width) - 2 * var(--card-border-width));
+    height: calc(var(--card-height) - 2 * var(--card-border-width));
+    background-color: var(--default-color);
+    border: var(--card-border-width) solid var(--default-border-color);
+    border-radius: var(--card-border-width);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: space-evenly;
+    position: relative;
+}
+.single.card, .triple.card, .quadruple.card {
+    flex-direction: row;
+}
+.double.card {
+    flex-direction: column;
+}
+.advanced.card::before {
+    content: "❗";
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: calc(var(--card-width) * 0.1);
+}
+
+.badge {
+    background-color: var(--default-color);
+    border: var(--card-border-width) solid var(--default-border-color);
+    border-radius: 100%;
+    text-align: center;
+    position: relative;
+}
+.single .badge {
+    width: calc(var(--single-badge-width) - 2 * var(--card-border-width));
+    height: calc(var(--single-badge-width) - 2 * var(--card-border-width));
+    line-height: calc(var(--single-badge-width) - 2 * var(--card-border-width));
+    font-size: var(--single-badge-font-size);
+}
+.double .badge {
+    width: calc(var(--double-badge-width) - 2 * var(--card-border-width));
+    height: calc(var(--double-badge-width) - 2 * var(--card-border-width));
+    line-height: calc(var(--double-badge-width) - 2 * var(--card-border-width));
+    font-size: var(--double-badge-font-size);
+}
+.triple .badge {
+    width: calc(var(--triple-badge-width) - 2 * var(--card-border-width));
+    height: calc(var(--triple-badge-width) - 2 * var(--card-border-width));
+    line-height: calc(var(--triple-badge-width) - 2 * var(--card-border-width));
+    font-size: var(--triple-badge-font-size);
+}
+.quadruple .badge {
+    width: calc(var(--quadruple-badge-width) - 2 * var(--card-border-width));
+    height: calc(var(--quadruple-badge-width) - 2 * var(--card-border-width));
+    line-height: calc(var(--quadruple-badge-width) - 2 * var(--card-border-width));
+    font-size: var(--quadruple-badge-font-size);
+}
+
+.badge.plus::before {
+    content: "➕";
+    position: absolute;
+}
+.single .badge.plus::before {
+    font-size: calc(var(--single-badge-font-size) * 0.75);
+    top: calc(var(--single-badge-width) * -0.3);
+    left: calc(var(--single-badge-width) * -0.125);
+}
+.double .badge.plus::before {
+    font-size: calc(var(--double-badge-font-size) * 0.75);
+    top: calc(var(--double-badge-width) * -0.3);
+    left: calc(var(--double-badge-width) * -0.125);
+}
+.triple .badge.plus::before {
+    font-size: calc(var(--triple-badge-font-size) * 0.75);
+    top: calc(var(--triple-badge-width) * -0.3);
+    left: calc(var(--triple-badge-width) * -0.125);
+}
+.quadruple .badge.plus::before {
+    font-size: calc(var(--quadruple-badge-font-size) * 0.75);
+    top: calc(var(--quadruple-badge-width) * -0.3);
+    left: calc(var(--quadruple-badge-width) * -0.125);
+}
+
+.castle.badge {
+    background-color: var(--castle-color);
+    border-color: var(--castle-border-color);
+}
+.hall.badge {
+    background-color: var(--hall-color);
+    border-color: var(--hall-border-color);
+}
+.wheat.badge {
+    background-color: var(--wheat-color);
+    border-color: var(--wheat-border-color);
+}
+.barracks.badge {
+    background-color: var(--barracks-color);
+    border-color: var(--barracks-border-color);
+}
+.port.badge {
+    background-color: var(--port-color);
+    border-color: var(--port-border-color);
+}
+.station.badge {
+    background-color: var(--station-color);
+    border-color: var(--station-border-color);
+}
+.moai.badge {
+    background-color: var(--moai-color);
+    border-color: var(--moai-border-color);
+}
+.tree.badge {
+    background-color: var(--tree-color);
+    border-color: var(--tree-border-color);
+}
+.attack.badge {
+    background-color: var(--attack-color);
+    border-color: var(--attack-border-color);
+}

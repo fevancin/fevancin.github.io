@@ -1,0 +1,43 @@
+.second {
+    border-top: 1px solid black;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th {
+    background-color: gainsboro;
+    border: 1px solid black;
+    height: 0.75cm;
+}
+
+td {
+    border: 1px solid black;
+    width: 0.75cm;
+    height: 0.75cm;
+    line-height: 0.75cm;
+    text-align: center;
+}
+
+.commands {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+button, p {
+    margin: 0.5cm;
+}
+
+.section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
