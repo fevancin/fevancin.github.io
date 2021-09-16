@@ -4,7 +4,7 @@ const bodyElement = document.querySelector("body");
 let pageElement = null;
 
 cards.forEach((card, index) => {
-    if (index % 10 === 0) {
+    if (index % 9 === 0) {
         pageElement = document.createElement("div");
         pageElement.classList.add("page");
         bodyElement.appendChild(pageElement);
