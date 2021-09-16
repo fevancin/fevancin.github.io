@@ -2,18 +2,18 @@
 
 const pawns = {
     archer: {
-        number: 76,
+        number: 57,
         icon: "🏹",
         attack: 1
     },
     knight: {
-        number: 54,
+        number: 45,
         icon: "🐎",
         attack: 3
     },
     wizard: {
-        number: 36,
-        icon: "🧙‍♂️",
+        number: 30,
+        icon: ["🧙🏻", "🧙🏽", "🧙🏽‍♂️", "🧙🏾", "🧙🏿‍♂️", "🧙🏻‍♀️", "🧙🏽‍♀️", "🧙🏿‍♀️", "🧙🏾‍♀️", "🧙🏿‍♀️"], /* 🧙 */
         attack: 5
     },
     dragon: {
@@ -33,7 +33,11 @@ for (const pawnType in pawns) {
             const pawnElement = document.createElement("div");
             pawnElement.classList.add(pawnType);
             pawnElement.classList.add("pawn");
-            pawnElement.innerHTML = pawns[pawnType][propertyName];
+            if (pawnType === "wizard" && propertyName === "icon") {
+                pawnElement.innerHTML = pawns[pawnType][propertyName][Math.floor(Math.random() * pawns[pawnType][propertyName].length)];
+            } else {
+                pawnElement.innerHTML = pawns[pawnType][propertyName];
+            }
             pageElement.appendChild(pawnElement);
         }
     });

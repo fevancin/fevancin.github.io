@@ -3,14 +3,14 @@
 const numbers = {
     "CASTLE": 40,
     "HALL": 40,
-    "WHEAT1": 40,
-    "WHEAT2": 40,
-    "WHEAT3": 30,
-    "WHEAT4": 30,
-    "BARRACKS1": 40,
-    "BARRACKS2": 40,
-    "BARRACKS3": 30,
-    "BARRACKS4": 30,
+    "WHEAT1": 30,
+    "WHEAT2": 30,
+    "WHEAT3": 20,
+    "WHEAT4": 20,
+    "BARRACKS1": 30,
+    "BARRACKS2": 30,
+    "BARRACKS3": 20,
+    "BARRACKS4": 20,
     "PORT": 40,
     "STATION": 40,
     "MOAI": 30,
@@ -97,7 +97,7 @@ const constants = {
     },
     "PORT": {
         className: "port",
-        icon: "🚢",
+        icon: "⛵",
         lowerLabel: null,
         upperLabel: "🗡️",
         upperLabelSize: "one"
@@ -113,7 +113,7 @@ const constants = {
         className: "moai",
         icon: "🗿",
         lowerLabel: null,
-        upperLabel: "⛔",
+        upperLabel: "💫", /* ⛔ */
         upperLabelSize: "one"
     },
     "TREE": {
