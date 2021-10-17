@@ -1,3 +1,7 @@
+body {
+    margin: 0.5cm;
+}
+
 h1 {
     text-align: center;
 }
@@ -5,7 +9,7 @@ h1 {
 footer {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: calc(100% - 1cm);
 }
 
 footer p {

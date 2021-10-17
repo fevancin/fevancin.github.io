@@ -17,6 +17,10 @@
     --quadruple-badge-font-size: 1cm;
 }
 
+/* .page {
+    transform: rotate(90deg) translate(-3cm, -10cm);
+} */
+
 .card {
     width: calc(var(--card-width) - 2 * var(--card-border-width));
     height: calc(var(--card-height) - 2 * var(--card-border-width));

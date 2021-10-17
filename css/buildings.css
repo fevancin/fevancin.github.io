@@ -183,7 +183,7 @@
     flex-wrap: wrap;
 }
 .wheat td {
-    font-size: 0.8cm;
+    font-size: var(--building-label-one-font-size);
 }
 
 .barracks {
@@ -279,4 +279,23 @@
 }
 .tree .inner::before {
     border-bottom-color: var(--tree-border-color);
+}
+
+.cemetery {
+    background-color: var(--cemetery-border-color);
+}
+.cemetery::after {
+    border-top-color: var(--cemetery-border-color);
+}
+.cemetery::before {
+    border-bottom-color: var(--cemetery-border-color);
+}
+.cemetery .inner {
+    background-color: var(--cemetery-color);
+}
+.cemetery .inner::after {
+    border-top-color: var(--cemetery-color);
+}
+.cemetery .inner::before {
+    border-bottom-color: var(--cemetery-border-color);
 }

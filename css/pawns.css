@@ -1,6 +1,6 @@
 :root {
-    --pawn-size: 1.5cm;
-    --pawn-font-size: 0.75cm;
+    --pawn-size: 1.20cm;
+    --pawn-font-size: 0.5cm;
     --pawn-border-width: 0.25cm;
 }
 
@@ -39,5 +39,5 @@
     width: calc(var(--pawn-size) * 2 - 2 * var(--pawn-border-width));
     height: calc(var(--pawn-size) * 2 - 2 * var(--pawn-border-width));
     line-height: calc(var(--pawn-size) * 2 - 2 * var(--pawn-border-width));
-    font-size: calc(var(--pawn-font-size) * 1.5);
+    font-size: calc(var(--pawn-font-size) * 1.75);
 }
