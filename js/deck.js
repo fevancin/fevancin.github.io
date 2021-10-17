@@ -3,47 +3,47 @@
 const constants = {
     "C": {
         name: "Castello",
-        icon: "🏰"
+        icon: icons.castle
     },
     "H": {
         name: "Municipio",
-        icon: "🏛️"
-    },
-    "W": {
-        name: "Grano",
-        icon: "🌾"
-    },
-    "W+": {
-        name: "Grano +",
-        icon: "🌾"
+        icon: icons.hall
     },
     "B": {
         name: "Caserma",
-        icon: "⚔️"
+        icon: icons.barracks
     },
     "B+": {
         name: "Caserma +",
-        icon: "⚔️"
+        icon: icons.barracks
     },
-    "P": {
-        name: "Porto",
-        icon: "🚢"
+    "W": {
+        name: "Grano",
+        icon: icons.wheat
+    },
+    "W+": {
+        name: "Grano +",
+        icon: icons.wheat
     },
     "S": {
         name: "Stazione",
-        icon: "🚂"
+        icon: icons.station
+    },
+    "P": {
+        name: "Porto",
+        icon: icons.port
     },
     "M": {
         name: "Moai",
-        icon: "🗿"
+        icon: icons.moai
     },
     "T": {
         name: "Albero",
-        icon: "🌳"
+        icon: icons.tree
     },
     "A": {
         name: "Attacco",
-        icon: "👊🏼"
+        icon: icons.attack
     }
 };
 

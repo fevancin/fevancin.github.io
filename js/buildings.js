@@ -1,22 +1,5 @@
 "use strict";
 
-const numbers = {
-    "CASTLE": 40,
-    "HALL": 40,
-    "WHEAT1": 30,
-    "WHEAT2": 30,
-    "WHEAT3": 20,
-    "WHEAT4": 20,
-    "BARRACKS1": 30,
-    "BARRACKS2": 30,
-    "BARRACKS3": 20,
-    "BARRACKS4": 20,
-    "PORT": 40,
-    "STATION": 40,
-    "MOAI": 30,
-    "TREE": 30
-};
-
 const buildings = [];
 for (const name in numbers) {
     for (let i = 0; i < numbers[name]; i++) {
@@ -27,100 +10,107 @@ for (const name in numbers) {
 const constants = {
     "CASTLE": {
         className: "castle",
-        icon: "🏰",
+        icon: icons.castle,
         lowerLabel: null,
-        upperLabel: "11🛡️",
+        upperLabel: "" + stats.castleDefense + icons.defense,
         upperLabelSize: "two"
     },
     "HALL": {
         className: "hall",
-        icon: "🏛️",
+        icon: icons.hall,
         lowerLabel: null,
-        upperLabel: "5🛡️",
+        upperLabel: "" + stats.hallDefense + icons.defense,
         upperLabelSize: "two"
+    },
+    "BARRACKS1": {
+        className: "barracks",
+        icon: icons.barracks,
+        lowerLabel: icons.archer,
+        upperLabel: icons.level,
+        upperLabelSize: "one"
+    },
+    "BARRACKS2": {
+        className: "barracks",
+        icon: icons.barracks,
+        lowerLabel: icons.knight,
+        upperLabel: icons.level + icons.level,
+        upperLabelSize: "two"
+    },
+    "BARRACKS3": {
+        className: "barracks",
+        icon: icons.barracks,
+        lowerLabel: icons.wizard[icons.wizard.length - 1],
+        upperLabel: icons.level + icons.level + icons.level,
+        upperLabelSize: "three"
+    },
+    "BARRACKS4": {
+        className: "barracks",
+        icon: icons.barracks,
+        lowerLabel: icons.dragon,
+        upperLabel: icons.level + icons.level + icons.level + icons.level,
+        upperLabelSize: "four"
     },
     "WHEAT1": {
         className: "wheat",
         icon: null,
         lowerLabel: null,
-        upperLabel: "⭐",
+        upperLabel: icons.level,
         upperLabelSize: "one"
     },
     "WHEAT2": {
         className: "wheat",
         icon: null,
         lowerLabel: null,
-        upperLabel: "⭐⭐",
+        upperLabel: icons.level + icons.level,
         upperLabelSize: "two"
     },
     "WHEAT3": {
         className: "wheat",
         icon: null,
         lowerLabel: null,
-        upperLabel: "⭐⭐⭐",
+        upperLabel: icons.level + icons.level + icons.level,
         upperLabelSize: "three"
     },
     "WHEAT4": {
         className: "wheat",
         icon: null,
         lowerLabel: null,
-        upperLabel: "⭐⭐⭐⭐",
+        upperLabel: icons.level + icons.level + icons.level + icons.level,
         upperLabelSize: "four"
-    },
-    "BARRACKS1": {
-        className: "barracks",
-        icon: "⚔️",
-        lowerLabel: "🏹",
-        upperLabel: "⭐",
-        upperLabelSize: "one"
-    },
-    "BARRACKS2": {
-        className: "barracks",
-        icon: "⚔️",
-        lowerLabel: "🐎",
-        upperLabel: "⭐⭐",
-        upperLabelSize: "two"
-    },
-    "BARRACKS3": {
-        className: "barracks",
-        icon: "⚔️",
-        lowerLabel: "🧙",
-        upperLabel: "⭐⭐⭐",
-        upperLabelSize: "three"
-    },
-    "BARRACKS4": {
-        className: "barracks",
-        icon: "⚔️",
-        lowerLabel: "🐉",
-        upperLabel: "⭐⭐⭐⭐",
-        upperLabelSize: "four"
-    },
-    "PORT": {
-        className: "port",
-        icon: "⛵",
-        lowerLabel: null,
-        upperLabel: "🗡️",
-        upperLabelSize: "one"
     },
     "STATION": {
         className: "station",
-        icon: "🚂",
+        icon: icons.station,
         lowerLabel: null,
-        upperLabel: "🔄",
+        upperLabel: icons.stationLabel,
+        upperLabelSize: "one"
+    },
+    "PORT": {
+        className: "port",
+        icon: icons.port,
+        lowerLabel: null,
+        upperLabel: icons.portLabel,
         upperLabelSize: "one"
     },
     "MOAI": {
         className: "moai",
-        icon: "🗿",
+        icon: icons.moai,
         lowerLabel: null,
-        upperLabel: "💫", /* ⛔ */
+        upperLabel: icons.moaiLabel,
         upperLabelSize: "one"
     },
     "TREE": {
         className: "tree",
-        icon: "🌳",
+        icon: icons.tree,
         lowerLabel: null,
         upperLabel: null,
+        upperLabelSize: "one"
+    },
+    "CEMETERY": {
+        className: "cemetery",
+        icon: icons.cemetery,
+        lowerLabel: null,
+        upperLabel: icons.cemeteryLabel,
         upperLabelSize: "one"
     }
 };
@@ -153,49 +143,16 @@ buildings.forEach((buildingCode, index) => {
         innerElement.appendChild(iconElement);
     }
 
-    if (buildingCode === "WHEAT1") {
+    if (buildingCode === "WHEAT1" || buildingCode === "WHEAT2" || buildingCode === "WHEAT3" || buildingCode === "WHEAT4") {
         const tableElement = document.createElement("table");
-        const trElement = document.createElement("tr");
-        for (let i = 0; i < 2; i++) {
-            const tdElelement = document.createElement("td");
-            tdElelement.innerHTML = "🌾";
-            trElement.appendChild(tdElelement);
-        }
-        tableElement.appendChild(trElement);
-        innerElement.appendChild(tableElement);
-    } else if (buildingCode === "WHEAT2") {
-        const tableElement = document.createElement("table");
-        for (let j = 0; j < 2; j++) {
-            const trElement = document.createElement("tr");
-            for (let i = 0; i < 2; i++) {
-                const tdElelement = document.createElement("td");
-                tdElelement.innerHTML = "🌾";
-                trElement.appendChild(tdElelement);
-            }
-            tableElement.appendChild(trElement);
-        }
-        innerElement.appendChild(tableElement);
-    } else if (buildingCode === "WHEAT3") {
-        const tableElement = document.createElement("table");
-        for (let j = 0; j < 2; j++) {
-            const trElement = document.createElement("tr");
-            for (let i = 0; i < 3; i++) {
-                const tdElelement = document.createElement("td");
-                tdElelement.innerHTML = "🌾";
-                trElement.appendChild(tdElelement);
-            }
-            tableElement.appendChild(trElement);
-        }
-        innerElement.appendChild(tableElement);
-    } else if (buildingCode === "WHEAT4") {
-        const tableElement = document.createElement("table");
-        tableElement.classList.add("four");
+        if (buildingCode === "WHEAT4") tableElement.classList.add("four");
         const tbodyElement = document.createElement("tbody");
-        for (let j = 0; j < 3; j++) {
+        const dimensions = stats.wheatDimensions[+buildingCode[5] - 1];
+        for (let j = 0; j < dimensions.length; j++) {
             const trElement = document.createElement("tr");
-            for (let i = 0; i < ((j === 0) ? 4 : 3); i++) {
+            for (let i = 0; i < dimensions[j]; i++) {
                 const tdElelement = document.createElement("td");
-                tdElelement.innerHTML = "🌾";
+                tdElelement.innerHTML = icons.wheat;
                 trElement.appendChild(tdElelement);
             }
             tbodyElement.appendChild(trElement);

@@ -26,49 +26,49 @@ cards.forEach((card, index) => {
         switch (badge) {
             case "C":
                 badgeElement.classList.add("castle");
-                badgeElement.innerHTML = "🏰";
+                badgeElement.innerHTML = icons.castle;
                 break;
             case "H":
                 badgeElement.classList.add("hall");
-                badgeElement.innerHTML = "🏛️";
-                break;
-            case "W":
-                badgeElement.classList.add("wheat");
-                badgeElement.innerHTML = "🌾";
-                break;
-            case "W+":
-                badgeElement.classList.add("wheat");
-                badgeElement.classList.add("plus");
-                badgeElement.innerHTML = "🌾";
+                badgeElement.innerHTML = icons.hall;
                 break;
             case "B":
                 badgeElement.classList.add("barracks");
-                badgeElement.innerHTML = "⚔️";
+                badgeElement.innerHTML = icons.barracks;
                 break;
             case "B+":
                 badgeElement.classList.add("barracks");
                 badgeElement.classList.add("plus");
-                badgeElement.innerHTML = "⚔️";
+                badgeElement.innerHTML = icons.barracks;
                 break;
-            case "P":
-                badgeElement.classList.add("port");
-                badgeElement.innerHTML = "🚢";
+            case "W":
+                badgeElement.classList.add("wheat");
+                badgeElement.innerHTML = icons.wheat;
+                break;
+            case "W+":
+                badgeElement.classList.add("wheat");
+                badgeElement.classList.add("plus");
+                badgeElement.innerHTML = icons.wheat;
                 break;
             case "S":
                 badgeElement.classList.add("station");
-                badgeElement.innerHTML = "🚂";
+                badgeElement.innerHTML = icons.station;
+                break;
+            case "P":
+                badgeElement.classList.add("port");
+                badgeElement.innerHTML = icons.port;
                 break;
             case "M":
                 badgeElement.classList.add("moai");
-                badgeElement.innerHTML = "🗿";
+                badgeElement.innerHTML = icons.moai;
                 break;
             case "T":
                 badgeElement.classList.add("tree");
-                badgeElement.innerHTML = "🌳";
+                badgeElement.innerHTML = icons.tree;
                 break;
             case "A":
                 badgeElement.classList.add("attack");
-                badgeElement.innerHTML = "👊🏼";
+                badgeElement.innerHTML = icons.attack;
         }
         badgeElement.classList.add("badge");
         cardElement.appendChild(badgeElement);
