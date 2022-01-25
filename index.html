@@ -1,30 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Federico Vancini">
-        <meta name="description" content="Un gioco da tavolo">
-        <title>Moving Kingdoms</title>
-        <link href="./css/base.css" rel="stylesheet">
-        <link href="./css/index.css" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <h1>Moving Kingdoms</h1>
-        </header>
-        <main>
-            <p>Di seguito i link per le pagine contenenti:</p>
-            <ul>
-                <li><a href="./html/buildings.html">gli edifici</a></li>
-                <li><a href="./html/cards.html">le carte</a></li>
-                <li><a href="./html/pawns.html">le pedine</a></li>
-                <li><a href="./html/rules.html">le regole</a></li>
-                <li><a href="./html/deck.html">il simulatore del mazzo</a></li>
-            </ul>
-        </main>
-        <footer>
-            <p>Gioco da tavolo creato da AT & FV & LV con ❤</p>
-        </footer>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Federico Vancini">
+    <meta name="description" content="Le ricette del gioco da tavolo Alchemya">
+    <title>Alchemya</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <header>
+        <h1 class="main-title">Alchemya</h1>
+    </header>
+    <main>
+        <section id="first-section">
+            <table class="periodic-table">
+                <caption>Tavola Periodica</caption>
+                <tr>
+                    <td class="label" colspan="5">Elementi di Base</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="element" id="fire">Fuoco</td>
+                    <td class="element" id="earth">Terra</td>
+                    <td class="element" id="water">Acqua</td>
+                    <td class="element" id="air">Aria</td>
+                    <td class="element" id="ether">Etere</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="label">Gas Nobili</td>
+                </tr>
+                <tr>
+                    <td class="label">Esplosivi</td>
+                    <td class="label">Terrosi</td>
+                    <td></td>
+                    <td></td>
+                    <td class="label">Elettrici</td>
+                    <td class="label">Carbonici</td>
+                    <td class="label">Atmosferici</td>
+                    <td class="label">Vulcanici</td>
+                    <td class="element" id="helium">Elio</td>
+                </tr>
+                <tr>
+                    <td class="element" id="potassium">Potassio</td>
+                    <td class="element" id="lime">Calce</td>
+                    <td class="label">Acquosi</td>
+                    <td class="label">Metallici</td>
+                    <td class="element" id="alum">Allume</td>
+                    <td class="element" id="coal">Carbone</td>
+                    <td class="element" id="oxygen">Ossigeno</td>
+                    <td class="element" id="sulphur">Zolfo</td>
+                    <td class="element" id="neon">Neon</td>
+                </tr>
+                <tr>
+                    <td class="element" id="saltpeter">Salnitro</td>
+                    <td class="element" id="hydrated-lime">Calce Idrata</td>
+                    <td class="element" id="water-wine">Acqua Vite</td>
+                    <td class="element" id="iron">Ferro</td>
+                    <td class="element" id="copper">Rame</td>
+                    <td class="element" id="tar">Catrame</td>
+                    <td class="element" id="nitrogen">Azoto</td>
+                    <td class="element" id="black-sulphur">Zolfo Nero</td>
+                    <td class="element" id="kripton">Kripton</td>
+                </tr>
+                <tr>
+                    <td class="element" id="gunpowder">Polvere da Sparo</td>
+                    <td class="element" id="quicklime">Calce Viva</td>
+                    <td class="element" id="white-spirit">Acqua Ragia</td>
+                    <td class="element" id="quicksilver">Argento Vivo</td>
+                    <td class="element" id="calcinated-copper">Rame Calcinato</td>
+                    <td class="element" id="lead">Piombo</td>
+                    <td class="element" id="phosphorus">Fosforo</td>
+                    <td class="element" id="alchemic-sulphur">Zolfo Alchemico</td>
+                    <td class="element" id="xenon">Xenon</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="label" colspan="3">Composti Finali</td>
+                    <td></td>
+                    <td class="label" colspan="3">Composti con Effetto</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="element" id="diamond">Diamante</td>
+                    <td class="element" id="uranium">Uranio</td>
+                    <td class="element" id="gold">Oro</td>
+                    <td></td>
+                    <td class="element" id="white-lead">Piombo Bianco</td>
+                    <td class="element" id="ammonium-salt">Sale di Ammonio</td>
+                    <td class="element" id="sulphuric-acid">Acido Solforico</td>
+                    <td></td>
+                </tr>
+            </table>
+        </section>
+        <section id="second-section">
+            <table class="recipe-table">
+                <caption>Ricette</caption>
+                <tr>
+                    <th>Nome</th><th>Ricetta</th><th>Totale</th>
+                </tr>
+            </table>
+            <p class="total"></p>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
+</body>
 </html>
