@@ -1,16 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Federico Vancini">
-        <meta name="description" content="A blank page">
-        <title>Blank Page</title>
-        <link rel="stylesheet" href="stylesheet.css">
-    </head>
-    <body>
-        <h1>A Blank Page</h1>
-        <p>The thing you are looking for is probably not here...</p>
-        <script src="main.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Federico Vancini">
+    <meta name="description" content="Le regole di Moving Kindoms">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regole</title>
+    <link href="stylesheet.css" rel="stylesheet">
+    <link href="icon.svg" rel="icon">
+</head>
+<body>
+    <header>
+        <h1>Regole di Moving Kindoms</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#preparazione">🗺️ Preparazione</a></li>
+            <li><a href="#turno">🔃 Turno</a></li>
+            <li><a href="#edifici">🏗️ Edifici</a></li>
+            <li><a href="#truppe">🧙🏻‍♂️ Truppe</a></li>
+            <li><a href="#attacchi">🧨 Attacchi</a></li>
+            <li><a href="#spostamenti">🌍 Spostamenti</a></li>
+            <li><a href="#punti">💸 Punti</a></li>
+            <li><a href="#">Torna su ⬆️</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <p>
+                <strong>Moving Kindoms</strong> è un gioco di strategia per 2/6 persone in cui i giocatori si sfidano nello sviluppare il regno più ricco!
+                Fonda, sviluppa e rafforza le tue città mentre addestri degli eserciti per distruggere le città avversarie.
+            </p>
+            <p>
+                Moving Kindoms può essere giocato in modalità tutti-contro-tutti oppure a squadre di 2 o 3 giocatori.
+                Collabora con la tua squadra scambiando gli edifici e ribaltando continuamente le sorti della partita.
+            </p>
+            <p>
+                Il gioco termina non appena viene distrutta la quinta città, e vince il giocatore o la squadra che è riuscita ad accumulare più
+                punti di tutti.
+            </p>
+            <hr>
+        </section>
+        <section id="preparazione">
+            <h2>🗺️ Contenuto della confezione e preparazione al gioco</h2>
+            <p>
+                La scatola di gioco contiene:
+            </p>
+            <ul>
+                <li>un mazzo di 30 carte azione di base,</li>
+                <li>un mazzo di 30 carte azione avanzate,</li>
+                <li>
+                    190 carte edificio esagonali divisi in:
+                    <ul>
+                        <li>40 🏯 castelli / 🏛️ municipi,</li>
+                        <li>30 🌾 campi di grano I/II,</li>
+                        <li>20 🌾campi di grano III/IV,</li>
+                        <li>30 ⚔️ caserme I/II,</li>
+                        <li>20 ⚔️ caserme III/IV,</li>
+                        <li>20 🚂 stazioni / ⛵ porti,</li>
+                        <li>20 🗿 moai / 🌳 alberi,</li>
+                        <li>10 🧱 muri.</li>
+                    </ul>
+                </li>
+                <li>
+                    110 pedine truppa divise in:
+                    <ul>
+                        <li>40 🏹 arcieri,</li>
+                        <li>30 🐎 cavalieri,</li>
+                        <li>20 🧙🏻‍♂️ maghi,</li>
+                        <li>20 🐉 draghi.</li>
+                    </ul>
+                </li>
+                <li>dei segnalini per identificare le città,</li>
+                <li>una copia di queste regole.</li>
+            </ul>
+            <p>
+                Per incominciare il gioco si formano le eventuali squadre: i partecipanti della stessa squadra si dovranno disporre il più possibile
+                alternandosi in modo tale da rendere il giro di turni equo. <br>
+                Se la partita è 2 contro 2 il giro sarà: A B A B. <br>
+                Se la partita è 3 contro 3 il giro sarà: A B A B A B. <br>
+                Se la partita è 2 contro 2 contro 2 il giro sarà: A B C A B C.
+            </p>
+            <p>
+                Si dispone il mazzo azione di base al centro del tavolo e si distribuiscono 2 edifici 🏯 <em>castello</em> ad ogni giocatore.
+                Seguendo l'ordine di turno ogni giocatore posiziona liberamente uno dei propri castelli attorno al mazzo, a formare un cerchio con sempre più edifici.
+                Al termine di questa fase dovrà delinearsi la conformazione iniziale del campo di gioco; i giocatori posizioneranno vicino ad ognuno dei propri castelli
+                un edificio 🌾 <em>campo di grano</em> e uno ⚔️ <em>caserma</em>, entrambi al livello 1.
+                Si consiglia di utilizzare i segnalini colorati per identificare il proprietario di ciascuna città.
+            </p>
+            <p>
+                Da ora in poi inizia il gioco, seguendo le fasi dei turni.
+            </p>
+            <hr>
+        </section>
+        <section id="turno">
+            <h2>🔃 Il turno</h2>
+            <p>
+                Il gioco si svolge a turni in senso orario, ed ogni turno è composto da fasi:
+            </p>
+            <ol>
+                <li>
+                    <em>Fase di pesca</em>: il giocatore di turno estrae una carta azione dal mazzo e la mostra a tutti;
+                    dovrà scegliere una sola fra le possibili azioni in essa raffigurate. <br>
+                    Alcune di queste azioni sono di costruzione di nuovi edifici: per poterle selezionare dovrai possedere almeno uno spazio vuoto edificabile. <br>
+                    Altre azioni sono di potenziamento: è necessario avere gli edifici che si desidera potenziare. <br>
+                    È possibile, se presente, selezionare l'azione di 👊🏻 <em>attacco</em> per utilizzare in combattimento le truppe finora addestrate. <br>
+                    Il gioco inizia utilizzando il mazzo di azioni base ed una volta terminato lo si sostituisce con il mazzo avanzato fino alla fine della partita
+                    della partita, rimescolandolo ogni volta che termina.
+                </li>
+                <li>
+                    <em>Fase di costruzione, potenziamento o attacco</em>: si attua l'azione scelta.
+                </li>
+                <li>
+                    <em>Fase di addestramento</em>: se in qualche città sono presenti degli edifici ⚔️ <em>caserma</em>, ciascuno di essi ha la possibilità di produrre
+                    una unità della truppa corrispondente al suo livello; quest'ultima deve però trovare subito posto in un edificio 🌾 <em>campo di grano</em>
+                    della medesima città che abbia spazio.
+                </li>
+                <li>
+                    <em>Fase di spostamento</em>: il giocatore di turno può scegliere di spostare un qualsiasi edificio di sua proprietà
+                    (a parte l'edificio 🏯 <em>castello</em> che è inamovibile). <br>
+                    Lo spostamento deve avere come destinazione un'altra città propria o alleata che sia contigua. <br>
+                    Lo spostamento, se attuato, è unico e pone fine al turno. Ora tocca al giocatore successivo.
+                </li>
+            </ol>
+            <hr>
+        </section>
+        <section id="edifici">
+            <h2>🏗️ Gli edifici</h2>
+            <p>Moving Kindoms prevede 9 tipologie di edifici:</p>
+            <ul>
+                <li>
+                    🏯 <em>Castello</em>: questo edificio è il centro di ciascuna città, e deve essere unico per ognuna di queste. <br>
+                    Il castello possiede 6 🛡️ punti difesa e mette a disposizione 6 spazi edificabili. <br>
+                    Ogni volta che un castello viene costruito deve prendere posto fra due città già in gioco; queste ultime
+                    saranno gli unici collegamenti con cui potranno svolgersi eventuali attacchi (se avversarie) o spostamenti di fine turno (se proprie o alleate). <br>
+                    Nel momento in cui un nuovo castello entra in gioco è possibile, da ogni altra città propria o alleata, spostarvici fino ad un edificio.
+                    Questi trasferimenti non valgono come spostamenti di fine turno. <br>
+                    Se in seguito ad un attacco un castello viene distrutto allora gli edifici ad esso collegato finiscono distrutti anche loro. <br>
+                    è possibile salvare alcuni o tutti questi edifici pagandone il loro valore in termini di punti: gli edifici salvati in tal modo potranno prendere posto
+                    in una qualsiasi città propria o alleata che abbia dei posti edificabili.
+                </li>
+                <li>
+                    🏛️ <em>Municipio</em>: il municipio amplia lo spazio edificabile della città in cui è costruito da 6 ad 8 postazioni. Questo edificio fornisce
+                    inoltre 3 🛡️ punti difesa addizionali. <br>
+                    Sebbene non vi sia limite al numero di municipi edificabili nella stessa città, solo in uno di questi potrà essere attivo l'effetto;
+                    eventuali municipi in eccesso non avranno alcuna funzionalità. È possibile spostare un municipio in una città già piena
+                    (con 6 edifici costruiti attorno al castello) in quanto l'effetto di ampliamento dello spazio prende piede istantaneamente.
+                </li>
+                <li>
+                    🌾 <em>Campo di grano</em>: questo edificio rende possibile alle truppe stanziare in una città. Il campo di grano possiede 4 livelli di potenziamento: <br>
+                    livello 1: 2 spazi in una griglia 2x1, <br>
+                    livello 2: 4 spazi in una griglia 2x2 ,<br>
+                    livello 3: 6 spazi in una griglia 2x3, <br>
+                    livello 4: 10 spazi in una griglia 2x3 con 4 spazi superiormente. <br>
+                    Il campo di grano può essere potenziato se viene scelta l'azione corrispondente.
+                    Potenziare ulteriormente un campo di grano al livello 4 lo trasforma nuovamente al livello 1.
+                </li>
+                <li>
+                    ⚔️ <em>Caserma</em>: ogni caserma può generare, nella città in cui è costruita, una truppa del tipo relativo al suo livello ad ogni turno. <br>
+                    Livello 1: 🏹 <em>arciere</em>, <br>
+                    livello 2: 🐎 <em>cavaliere</em>, <br>
+                    livello 3: 🧙🏻‍♂️ <em>mago</em>, <br>
+                    livello 4: 🐉 <em>drago</em>. <br>
+                    La caserma può essere potenziata se viene scelta l'azione corrispondente.
+                    Potenziare ulteriormente una caserma al livello 4 la trasforma nuovamente al livello 1. <br>
+                    Per poter addestrare una unità deve essere disponibile sufficiente spazio in un 🌾 <em>campo di grano</em> collocato nella stessa città.
+                </li>
+                <li>
+                    🚂 <em>Stazione</em>: la stazione amplia le possibilità di spostamento di fine turno alla città che la possiede. In condizioni normali questi sono limitati
+                    a città proprie o alleate solo se contigue nel campo di gioco; una città con la stazione è in grado invece di raggiungere qualsiasi altra
+                    destinazione vicina o lontana, alleata o avversaria.
+                </li>
+                <li>
+                    ⛵ <em>Porto</em>: questo edificio amplia il raggio di attacco di una città in entrambe le direzioni. In condizioni normali gli attacchi possono essere
+                    condotti solo fra città avversarie contigue alle proprie nel campo di gioco; la città che possiede un porto può invece raggiungere militarmente anche
+                    obiettivi distanti 2. Con un porto è possibile oltrepassare un 🧱 <em>muro</em>, raggiungendo la città subito successiva.
+                </li>
+                <li>
+                    🗿 <em>Moai</em>: il moai vale 5 punti. Se una città con il moai viene distrutta, questo edificio viene rubato e diventa di proprietà della città vincitrice;
+                    quest'ultima deve però possedere, al termine del combattimento, almeno uno spazio edificabile per poter appropriarsene.
+                </li>
+                <li>
+                    🌳 <em>Albero</em>: l'albero non possiede nessun effetto, se non quello di occupare uno spazio edificabile. <br>
+                    Questo edificio vale -1 punto. Salvare un albero dalla distruzione in seguito alla perdita di una città costa comunque 1 punto.
+                </li>
+                <li>
+                    🧱 <em>Muro</em>: per poter costruire un muro un giocatore deve selezionare l'azione 🏯 <em>castello</em> durante la prima fase del turno.
+                    Anziché creare una nuova città il giocatore posiziona fra due città nel campo di gioco un muro che, d'ora in avanti, renderà loro impossibile
+                    gli scambi e gli attacchi. <br>
+                    Costruire un muro ha costo -1 punto. I muri possono essere distrutti da chiunque vi confini se si sceglie l'azione di 👊🏻 <em>attacco</em>; fare ciò
+                    rende impossibile condurre altri attacchi, concludendo di fatto la seconda fase del turno.
+                </li>
+            </ul>
+            <hr>
+        </section>
+        <section id="truppe">
+            <h2>🧙🏻‍♂️ Le truppe</h2>
+            <p>
+                Moving Kingdoms prevede 4 tipologie di truppe: ognuna di queste possiede un suo valore di attacco ed una sua dimensione:
+            </p>
+            <ul>
+                <li>🏹 <em>Arciere</em>: 1 punto attacco, dimensione 1x1, addestrabile solo dalla caserma al livello 1,</li>
+                <li>🐎 <em>Cavaliere</em>: 3 punti attacco, dimensione 1x2, addestrabile solo dalla caserma al livello 2,</li>
+                <li>🧙🏻‍♂️ <em>Mago</em>: 5 punti attacco, dimensione 1x3, addestrabile dalla solo caserma al livello 3,</li>
+                <li>🐉 <em>Drago</em>: 8 punti attacco, dimensione 2x2, addestrabile dalla solo caserma al livello 4.</li>
+            </ul>
+            <p>
+                La dimensione di ogni truppa rende a volte impossibile la collocazione simultanea nel 🌾 <em>campi di grano</em>: è necessario difatti rispettare
+                la geometria della griglia in ognuno di questi ultimi per soddisfare le condizioni di addestramento. <br>
+                In ogni momento è possibile de-addestrare un qualsiasi ammontare di truppe già stanziate, ed è altrettanto lecito spostarle fra
+                campi di grano differenti a patto che si trovino nella medesima città.
+            </p>
+            <hr>
+        </section>
+        <section id="attacchi">
+            <h2>🧨 Gli attacchi</h2>
+            <p>
+                Se durante la prima fase del turno un giocatore seleziona l'azione di 👊🏻 <em>attacco</em>, allora durante la seconda fase potrà condurre tutti
+                gli scontri che desidera a partire dalle sue città, anche da luoghi che hanno già attaccato. <br>
+                Si ricorda che la fase di riaddestramento delle truppe è successiva, pertanto i giocatori dovranno utilizzare solamente l'esercito che già possiedono. <br>
+                Gli scontri si conducono solamente fra città avversarie che si trovano contigue sul tabellone di gioco (il ⛵ <em>porto</em> amplia questo raggio di una città)
+                e si può decidere liberamente con quali truppe attaccare e difendere. <br>
+                Vincerà l'attacco il giocatore che possiederà la somma più grande dei valori delle truppe stanziate. Il difensore avrà nel proprio totale anche
+                i valori dei punti difesa del 🏯 <em>castello</em> e dell'eventuale 🏛️ <em>municipio</em>. <br>
+                Nel caso ci sia un resto, questo viene convertito in 🏹 <em>arcieri</em> che dovranno subito trovare posto nei 🌾 <em>campi di grano</em> delle rispettive città;
+                se non c'è sufficiente posto allora verranno scartati. <br>
+                Se l'attaccante riesce ad eliminare completamente l'esercito difensore ma non riesce a sovrastare le difese degli edifici, l'attacco terminerà
+                senza perdite relative agli edifici stessi: castelli e municipi entreranno nel conto solo nel caso vengano distrutti.
+            </p>
+            <hr>
+        </section>
+        <section id="spostamenti">
+            <h2>🌍 Gli spostamenti</h2>
+            <p>
+                Come ultima azione il giocatore di turno può attuare il proprio spostamento. Questo deve avere origine in una propria città e deve avere destinazione
+                in una città, propria o alleata, che sia contigua. La 🚂 <em>stazione</em> rilassa queste condizioni, rendendo possibile alla città che la possiede
+                uno spostamento con destinazione qualsiasi, avversaria e/o non contigua. <br>
+                Tutti gli edifici possono essere selezionati per lo spostamento a parte il 🏯 <em>castello</em>. <br>
+                Spostando un campo di grano si trasferiscono anche le truppe in esso contenute. <br>
+                La città che desidera inviare una stazione dovrà possedere un'altra stazione per rendere possibile lo scambio sfruttandone l'effetto. <br>
+                Se una città sposta il proprio 🏛️ <em>municipio</em> attivo, gli eventuali edifici in eccesso a lui collegati rimangono indietro,
+                e se non trovano posto vengono persi. <br>
+                L'arrivo di un municipio attiva il suo effetto istantaneamente, e una città ricevente con già sei edifici non ne perde nessuno.
+            </p>
+            <hr>
+        </section>
+        <section id="punti">
+            <h2>💸 I punti e la fine del gioco</h2>
+            <p>
+                Durante il corso della partita si tiene conto di quante città sono state distrutte fino a quel momento, indipendentemente dal giocatore. <br>
+                Quando questo ammontare arriva a 5 la partita termina e si procede con la conta dei punteggi. Il giocatore o la squadra con la somma maggiore vince. <br>
+                Ogni edificio in gioco al momento del termine della partita vale un punto. I 🌾 <em>campi di grano</em> e le ⚔️ <em>caserme</em> valgono
+                tanti punti quanto è il loro livello. <br>
+                I 🗿 <em>moai</em> valgono 5 punti ciascuno, gli 🌳 <em>alberi</em> valgono -1 punto, i 🧱 <em>muri</em> non hanno proprietario.
+                <!-- punti per edifici persi? -->
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>Fatto con ❤️ da MOAI Games.</p>
+    </footer>
+</body>
 </html>
